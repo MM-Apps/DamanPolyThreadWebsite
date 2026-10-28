@@ -27,6 +27,7 @@ lerna-debug.log*
 .claude/
 .claude.json
 skills-lock.json
+.superpowers/
 
 # Editor & OS files
 .DS_Store
