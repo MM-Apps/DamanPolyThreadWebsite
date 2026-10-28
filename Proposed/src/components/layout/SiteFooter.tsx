@@ -130,7 +130,12 @@ export const SiteFooter: React.FC = () => {
                 <Link to="/contact" className="hover:text-accent transition-colors">Request a Quote (RFQ)</Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-accent transition-colors">Career Opportunities</Link>
+                <a
+                  href={`mailto:${companyData.emails.careers}`}
+                  className="hover:text-accent transition-colors"
+                >
+                  Career Opportunities
+                </a>
               </li>
             </ul>
           </div>
