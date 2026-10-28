@@ -27,19 +27,20 @@ export const AboutPage: React.FC = () => {
             backgroundImage: "url('/images/parallax/parallax-about-us.jpg')",
           }}
         />
-        {/* Scrim: keeps the headline column solid, lets the spinning corridor read through on the right. */}
+        {/* Scrim: keeps the headline column solid, lets the bright white machinery hall read through on the right.
+            This photo is high-key but low-chroma, so it needs a lighter hand than the saturated product shots. */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to right, rgba(10,23,38,0.95) 0%, rgba(10,23,38,0.88) 45%, rgba(10,23,38,0.55) 75%, rgba(10,23,38,0.28) 100%)',
+              'linear-gradient(to right, rgba(10,23,38,0.95) 0%, rgba(10,23,38,0.84) 45%, rgba(10,23,38,0.42) 72%, rgba(10,23,38,0.08) 100%)',
           }}
         />
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to top, rgba(10,23,38,0.72) 0%, rgba(10,23,38,0.10) 35%, rgba(10,23,38,0.35) 100%)',
+              'linear-gradient(to top, rgba(10,23,38,0.62) 0%, rgba(10,23,38,0.04) 35%, rgba(10,23,38,0.26) 100%)',
           }}
         />
 
