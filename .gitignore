@@ -26,6 +26,7 @@ lerna-debug.log*
 # Claude Code CLI runtime & session state
 .claude/
 .claude.json
+skills-lock.json
 
 # Editor & OS files
 .DS_Store
