@@ -159,11 +159,24 @@ export const HeroSection: React.FC = () => {
           );
         })}
 
-        {/* Multi-layered cinematic contrast gradients */}
-        <div className="absolute inset-0 z-20 bg-gradient-to-r from-primary-dark/95 via-primary-dark/85 to-primary-dark/60" />
-        <div className="absolute inset-0 z-20 bg-gradient-to-t from-primary-dark via-transparent to-primary-dark/70" />
+        {/* Cinematic scrim: holds the left text column solidly dark, then opens up
+            so the spool photography reads through behind the glass RFQ card. */}
         <div
-          className="absolute inset-0 z-20 opacity-15 pointer-events-none"
+          className="absolute inset-0 z-20 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(10,23,38,0.97) 0%, rgba(10,23,38,0.90) 50%, rgba(10,23,38,0.42) 78%, rgba(10,23,38,0.10) 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 z-20 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(10,23,38,0.78) 0%, rgba(10,23,38,0.22) 28%, rgba(10,23,38,0.42) 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 z-20 opacity-10 pointer-events-none"
           style={{
             backgroundImage: 'radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)',
             backgroundSize: '32px 32px',
