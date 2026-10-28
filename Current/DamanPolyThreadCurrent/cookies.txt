@@ -1,0 +1,4 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+damanpolythread.com	TRUE	/	FALSE	1999999999	PHPSESSID	4c19766a05455401ab9f0f83b5677e23
+

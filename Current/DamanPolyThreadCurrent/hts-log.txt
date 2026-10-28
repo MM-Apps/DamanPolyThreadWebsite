@@ -1,0 +1,40 @@
+HTTrack3.50-0 launched on Thu, 29 Oct 2026 00:18:55 at https://damanpolythread.com/en/index.html +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +*.gif +*.jpg +*.jpeg +*.png +*.tif +*.bmp +*.zip +*.tar +*.tgz +*.gz +*.rar +*.z +*.exe +*.mov +*.mpg +*.mpeg +*.avi +*.asf +*.mp3 +*.mp2 +*.rm +*.wav +*.vob +*.qt +*.vid +*.ac3 +*.wma +*.wmv
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2%f#f -F "Mozilla/5.0 (compatible; HTTrack; +https://www.httrack.com/)" -%F "<!-- Mirrored from {url} by HTTrack Website Copier/3.x [XR&CO], {date} -->" -%l "en, *" https://damanpolythread.com/en/index.html -O1 "D:\DamanPolyThread\Website\Current\DamanPolyThreadCurrent" +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +*.gif +*.jpg +*.jpeg +*.png +*.tif +*.bmp +*.zip +*.tar +*.tgz +*.gz +*.rar +*.z +*.exe +*.mov +*.mpg +*.mpeg +*.avi +*.asf +*.mp3 +*.mp2 +*.rm +*.wav +*.vob +*.qt +*.vid +*.ac3 +*.wma +*.wmv )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+00:20:34	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/assets/img/sliders/banner-1.jpg (from https://damanpolythread.com/en/index.html)
+00:20:34	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/assets/img/sliders/banner-2.jpg (from https://damanpolythread.com/en/index.html)
+00:20:34	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/assets/img/sliders/banner-3.jpg (from https://damanpolythread.com/en/index.html)
+00:20:34	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/assets/img/sliders/banner-4.jpg (from https://damanpolythread.com/en/index.html)
+00:20:34	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/assets/img/sliders/banner-5.jpg (from https://damanpolythread.com/en/index.html)
+00:20:34	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/assets/img/sliders/banner-6.jpg (from https://damanpolythread.com/en/index.html)
+00:20:34	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/img/brands.jpg (from https://damanpolythread.com/en/index.html)
+00:20:34	Error: 	"Not Found" (404) at link https://damanpolythread.com/img/event3.png (from https://damanpolythread.com/en/index.html)
+00:20:37	Error: 	"Not Found" (404) at link https://damanpolythread.com/img/about-us.jpg (from https://damanpolythread.com/css/grayscale.css)
+00:20:37	Error: 	"Not Found" (404) at link https://damanpolythread.com/img/parallax-enquiry.jpg (from https://damanpolythread.com/css/grayscale.css)
+00:20:37	Error: 	"Not Found" (404) at link https://damanpolythread.com/assets/img/sliders/slider3.png?1393983498 (from https://damanpolythread.com/assets/css/main.min.css)
+00:20:37	Error: 	"Not Found" (404) at link https://damanpolythread.com/assets/img/progress.gif (from https://damanpolythread.com/assets/css/main.min.css)
+00:20:37	Error: 	"Not Found" (404) at link https://damanpolythread.com/assets/img/noise_lines_@2X.png?1342797527 (from https://damanpolythread.com/assets/css/main.min.css)
+00:20:37	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/gtm.js (from www.google-analytics.com/analytics.js)
+00:20:37	Error: 	"Not Found" (404) at link https://damanpolythread.com/de/img/parallax-infrastructure.jpg (from https://damanpolythread.com/en/infrastructure.html)
+00:20:52	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/images/video.png (from https://damanpolythread.com/en/infrastructure.html)
+00:21:00	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/img/event.jpg (from https://damanpolythread.com/en/events.html)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/Popover requires tooltip.js (from https://damanpolythread.com/js/bootstrap.min.js)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/TweenLite.js (from https://damanpolythread.com/rs-plugin/js/jquery.themepunch.tools.min.js)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/Version/ (from https://damanpolythread.com/rs-plugin/js/jquery.themepunch.tools.min.js)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/TweenLite.js (from https://damanpolythread.com/rs-plugin/js/jquery.themepunch.tools.min.js)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/img/map-marker.png (from https://damanpolythread.com/js/grayscale.js)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/Opera/ (from https://damanpolythread.com/assets/js/loop.min.js)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/en/youtu.be/ (from https://damanpolythread.com/js/jquery.prettyPhoto.js)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/de/css/fonts/ElegantIcons.eot (from https://damanpolythread.com/de/css/elegant-font.css)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/de/css/fonts/ElegantIcons.eot? (from https://damanpolythread.com/de/css/elegant-font.css)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/de/css/fonts/ElegantIcons.woff (from https://damanpolythread.com/de/css/elegant-font.css)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/de/css/fonts/ElegantIcons.ttf (from https://damanpolythread.com/de/css/elegant-font.css)
+00:21:02	Error: 	"Not Found" (404) at link https://damanpolythread.com/de/css/fonts/ElegantIcons.svg (from https://damanpolythread.com/de/css/elegant-font.css)
+
+HTTrack Website Copier/3.50-0 mirror complete in 2 minutes 7 seconds : 300 links scanned, 270 files written (14185102 bytes overall) [13147495 bytes received at 103523 bytes/sec], 1532565 bytes transferred using HTTP compression in 59 files, ratio 24%, 13.6 requests per connection
+(29 errors, 0 warnings, 0 messages)
