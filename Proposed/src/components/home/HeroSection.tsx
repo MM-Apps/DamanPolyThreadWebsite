@@ -199,7 +199,10 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Dynamic Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-heading leading-tight sm:leading-none text-white drop-shadow-md">
+            {/* 3.5rem rather than 4xl at lg: the longest highlight
+                ("Narrow Woven Webbings") needs to hold one line inside the
+                7-of-12 column, so every slide stays a clean two-line lockup. */}
+            <h1 className="text-3xl sm:text-5xl lg:text-[3.5rem] font-extrabold tracking-tight font-heading leading-tight sm:leading-[1.05] text-white drop-shadow-md">
               {slides[currentSlide].title}{' '}
               <span className="text-accent block mt-1 sm:mt-2">
                 {slides[currentSlide].highlight}
