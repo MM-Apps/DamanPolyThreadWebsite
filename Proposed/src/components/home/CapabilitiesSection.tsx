@@ -65,17 +65,32 @@ export const CapabilitiesSection: React.FC = () => {
           <div className="bg-primary text-white rounded-lg p-6 flex flex-col justify-between border border-primary-light/40 shadow-sm">
             <div>
               <span className="text-xs font-bold uppercase tracking-widest text-accent mb-2 block">
-                EXPANSION & SCALE
+                ANNUAL OUTPUT BREAKDOWN
               </span>
               <h3 className="text-2xl font-bold font-heading leading-tight text-white">
                 12,000 MT Combined Capacity
               </h3>
-              <p className="text-sm text-slate-light mt-3 leading-relaxed">
-                Operating 8 compact spinning lines and specialized downstream finishing in Daman, providing high batch uniformity and rapid turnaround for bulk OEM contracts.
+              <p className="text-xs text-slate-light mt-2 leading-relaxed">
+                Operating 8 European compact spinning lines and precision needle looms in Daman:
               </p>
+
+              <div className="mt-4 space-y-2.5">
+                <div className="flex items-center justify-between bg-primary-dark/40 border border-primary-light/30 rounded px-3 py-2 text-xs">
+                  <span className="text-slate-light">HT PP Multifilament Yarn</span>
+                  <span className="font-bold text-accent font-heading">10,000 MT/yr</span>
+                </div>
+                <div className="flex items-center justify-between bg-primary-dark/40 border border-primary-light/30 rounded px-3 py-2 text-xs">
+                  <span className="text-slate-light">Narrow Woven Fabrics</span>
+                  <span className="font-bold text-white font-heading">2,000 MT/yr</span>
+                </div>
+                <div className="flex items-center justify-between bg-primary-dark/40 border border-primary-light/30 rounded px-3 py-2 text-xs">
+                  <span className="text-slate-light">Bag Closing & Twisting</span>
+                  <span className="font-bold text-emerald-400 font-heading">Integrated</span>
+                </div>
+              </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-primary-light/30">
+            <div className="mt-6 pt-4 border-t border-primary-light/30">
               <Button
                 to="/contact"
                 variant="gold"
