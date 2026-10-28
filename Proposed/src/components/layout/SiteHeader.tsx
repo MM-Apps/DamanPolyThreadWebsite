@@ -7,13 +7,14 @@ export const SiteHeader: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Six items now that Gallery has its own page, so the labels are tight on
-  // purpose — "About & Infrastructure" no longer has to carry the plant tour.
+  // Navigation items: Seven sections covering products, quality, plant gallery,
+  // international trade events, about, and direct contact.
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Products', path: '/products' },
     { name: 'Quality', path: '/quality' },
     { name: 'Gallery', path: '/gallery' },
+    { name: 'Events', path: '/events' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -67,7 +68,7 @@ export const SiteHeader: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (

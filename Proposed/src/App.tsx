@@ -5,6 +5,7 @@ import { ProductsPage } from './pages/ProductsPage';
 import { AboutPage } from './pages/AboutPage';
 import { QualityPage } from './pages/QualityPage';
 import { GalleryPage } from './pages/GalleryPage';
+import { EventsPage } from './pages/EventsPage';
 import { ContactPage } from './pages/ContactPage';
 
 export function App() {
@@ -17,6 +18,7 @@ export function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/quality" element={<QualityPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/events" element={<EventsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

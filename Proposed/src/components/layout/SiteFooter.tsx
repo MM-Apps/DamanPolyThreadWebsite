@@ -127,6 +127,9 @@ export const SiteFooter: React.FC = () => {
                 <Link to="/gallery" className="hover:text-accent transition-colors">Plant & Application Gallery</Link>
               </li>
               <li>
+                <Link to="/events" className="hover:text-accent transition-colors">International Expos & Events</Link>
+              </li>
+              <li>
                 <Link to="/contact" className="hover:text-accent transition-colors">Request a Quote (RFQ)</Link>
               </li>
               <li>
