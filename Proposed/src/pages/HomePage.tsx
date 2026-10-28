@@ -6,6 +6,7 @@ import { InteractiveProductShowcase } from '../components/home/InteractiveProduc
 import { ParallaxDivider } from '../components/home/ParallaxDivider';
 import { ManufacturingProcess } from '../components/home/ManufacturingProcess';
 import { CapabilitiesSection } from '../components/home/CapabilitiesSection';
+import { GlobalPresenceSection } from '../components/home/GlobalPresenceSection';
 import { QualityBanner } from '../components/home/QualityBanner';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
@@ -129,7 +130,10 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. Quality & Lab Testing Banner */}
+      {/* 7. Global Trade Delegations & International Presence */}
+      <GlobalPresenceSection />
+
+      {/* 8. Quality & Lab Testing Banner */}
       <QualityBanner />
 
       {/* 8. Technical Partnership & Sample Spool Offer */}
