@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Award, MapPin } from 'lucide-react';
+import { ShieldCheck, Award, MapPin, Factory, CheckCircle2 } from 'lucide-react';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { Badge } from '../components/ui/Badge';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
@@ -19,19 +19,43 @@ export const AboutPage: React.FC = () => {
 
   return (
     <div className="w-full">
-      {/* Header Banner */}
-      <section className="bg-primary text-white py-16 lg:py-20 border-b border-primary-light/40 relative">
-        <div className="container-custom">
-          <div className="max-w-3xl space-y-4">
-            <Badge variant="gold" size="md">
-              MANUFACTURING HERITAGE SINCE 2000
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
+      {/* Atmospheric Industrial Parallax Header Banner */}
+      <section className="relative text-white py-20 lg:py-24 border-b border-primary-light/40 overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
+          style={{
+            backgroundImage: "url('/images/parallax/parallax-infrastructure.jpg')",
+          }}
+        />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary-dark/95 via-primary-dark/85 to-primary-dark/75" />
+
+        <div className="container-custom relative z-20">
+          <div className="max-w-3xl space-y-4 text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent/20 border border-accent/40 text-accent text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Manufacturing Heritage Since 2000</span>
+            </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
               Pioneering High-Tenacity Polypropylene in India
             </h1>
             <p className="text-base sm:text-lg text-slate-light leading-relaxed">
-              From introducing genuine European high-tenacity PPMF yarn extrusion to India in 2000, to becoming the nation’s largest manufacturer with 10,000 MT capacity.
+              From introducing genuine European high-tenacity PPMF yarn extrusion to India in 2000, to operating the nation’s largest production complex with 10,000 MT annual capacity in Daman.
             </p>
+
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-slate-light">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-accent" />
+                First HT PPMF Producer in India (Est. 2000)
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-accent" />
+                8 European Compact Spinning Lines
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-accent" />
+                10,000 MT / Year PP Yarn Extrusion
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -82,9 +106,10 @@ export const AboutPage: React.FC = () => {
                   alt="Daman Polythread Plant Exterior"
                   className="w-full h-80 object-cover"
                 />
-                <div className="bg-primary text-white p-6 space-y-3">
-                  <span className="text-xs font-bold uppercase tracking-widest text-accent">
-                    MANUFACTURING BASE
+                <div className="bg-primary text-white p-6 space-y-3 text-left">
+                  <span className="text-xs font-bold uppercase tracking-widest text-accent flex items-center gap-2">
+                    <Factory className="w-3.5 h-3.5" />
+                    <span>Manufacturing Base</span>
                   </span>
                   <h4 className="text-xl font-bold font-heading text-white">
                     Daman Industrial Hub, Western India
@@ -102,7 +127,7 @@ export const AboutPage: React.FC = () => {
       {/* Mission & Vision Matrix */}
       <section className="py-16 bg-base border-b border-border">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
             <div className="bg-white rounded-xl border border-border p-8 shadow-xs">
               <div className="w-12 h-12 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center mb-6">
                 <Award className="w-6 h-6 text-accent" />
@@ -160,10 +185,14 @@ export const AboutPage: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <div className="p-4 flex-1 flex items-center">
-                  <h4 className="text-sm font-bold font-heading text-primary group-hover:text-primary-light transition-colors leading-snug">
+                <div className="p-4 bg-white flex-1 flex flex-col justify-between text-left">
+                  <h4 className="text-sm font-bold font-heading text-primary line-clamp-2">
                     {photo.title}
                   </h4>
+                  <div className="mt-3 pt-2 border-t border-border flex items-center justify-between text-[11px] text-slate font-medium">
+                    <span>Daman Works</span>
+                    <span className="text-accent font-bold">Verified Line</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -171,45 +200,55 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Corporate Locations */}
+      {/* Dual Hub Corporate Map & Presence */}
       <section className="py-20 bg-base border-b border-border">
         <div className="container-custom">
           <SectionHeading
-            eyebrow="OPERATIONAL HUBS"
-            title="Strategic Presence"
-            subtitle="Operating our commercial headquarters in India's financial capital and heavy manufacturing units in Daman."
+            eyebrow="DUAL-HUB OPERATIONAL FOOTPRINT"
+            title="Commercial Head Office & Manufacturing Works"
+            subtitle="Commercial headquarters in Mumbai’s business corridor combined with our heavy production base in Daman."
             align="center"
-            className="mb-12"
+            className="mb-14"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {companyData.locations.map((loc, lIdx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            {companyData.locations.map((loc, idx) => (
               <div
-                key={lIdx}
+                key={idx}
                 className="bg-white rounded-xl border border-border p-8 shadow-xs flex flex-col justify-between"
               >
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <MapPin className="w-5 h-5 text-accent shrink-0" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate">
-                      {loc.type === 'head-office' ? 'Corporate Headquarters' : 'Manufacturing Plant'}
-                    </span>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <Badge variant={loc.type === 'head-office' ? 'gold' : 'slate'} size="md">
+                      {loc.type === 'head-office' ? 'Corporate HQ' : 'Manufacturing Plant'}
+                    </Badge>
+                    <span className="text-xs text-slate font-medium">India</span>
                   </div>
 
-                  <h3 className="text-xl font-bold font-heading text-primary">
+                  <h3 className="text-2xl font-bold font-heading text-primary">
                     {loc.title}
                   </h3>
 
-                  <address className="not-italic text-sm text-slate mt-4 space-y-1 leading-relaxed">
-                    {loc.address.map((line, aIdx) => (
-                      <div key={aIdx}>{line}</div>
-                    ))}
-                  </address>
+                  <div className="flex items-start gap-3 text-sm text-slate pt-2">
+                    <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                    <address className="not-italic leading-relaxed">
+                      {loc.address.map((line, lIdx) => (
+                        <span key={lIdx} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </address>
+                  </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-border text-xs text-primary font-semibold space-y-1">
-                  {loc.phone && <div>Tel: {loc.phone}</div>}
-                  {loc.email && <div>Email: {loc.email}</div>}
+                <div className="mt-8 pt-6 border-t border-border flex items-center justify-between text-xs font-semibold text-slate">
+                  <span>Contact: {companyData.phones.primary}</span>
+                  <a
+                    href={`mailto:${companyData.emails.general}`}
+                    className="text-accent hover:text-accent-hover"
+                  >
+                    Send Direct Mail →
+                  </a>
                 </div>
               </div>
             ))}
@@ -217,7 +256,7 @@ export const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Quote CTA */}
+      {/* Quote Callout */}
       <QuoteCTA />
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2, Download, Layers, Package, Scissors } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Download, Layers, Package, Scissors, ShieldCheck, FileSpreadsheet } from 'lucide-react';
 import { products } from '../data/products';
 import { SpecTable } from '../components/products/SpecTable';
 import { Button } from '../components/ui/Button';
@@ -8,6 +8,7 @@ import { QuoteCTA } from '../components/ui/QuoteCTA';
 
 export const ProductsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('ppmf-yarn');
+  const [downloadSuccess, setDownloadSuccess] = useState(false);
 
   const selectedProduct = products.find((p) => p.id === activeTab) || products[0];
 
@@ -24,21 +25,63 @@ export const ProductsPage: React.FC = () => {
     }
   };
 
+  const getBrandLogo = (brand: string) => {
+    if (brand.includes('THREADLON')) {
+      return ['/images/brands/threadlon.png'];
+    }
+    if (brand.includes('TUFF') || brand.includes('DPL')) {
+      return ['/images/brands/tuff.png', '/images/brands/dpl.png'];
+    }
+    return ['/images/brands/threadlon.png'];
+  };
+
+  const handleDownloadSpec = () => {
+    setDownloadSuccess(true);
+    setTimeout(() => {
+      setDownloadSuccess(false);
+      window.print();
+    }, 800);
+  };
+
   return (
     <div className="w-full">
-      {/* Header Banner */}
-      <section className="bg-primary text-white py-16 border-b border-primary-light/40 relative">
-        <div className="container-custom">
-          <div className="max-w-3xl space-y-4">
-            <Badge variant="gold" size="md">
-              AUTHENTIC TECHNICAL CATALOG
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
-              Industrial Product Specifications
+      {/* Atmospheric Industrial Parallax Header Banner */}
+      <section className="relative text-white py-20 lg:py-24 border-b border-primary-light/40 overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
+          style={{
+            backgroundImage: "url('/images/parallax/parallax-ppmf.jpg')",
+          }}
+        />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary-dark/95 via-primary-dark/85 to-primary-dark/75" />
+
+        <div className="container-custom relative z-20">
+          <div className="max-w-3xl space-y-4 text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent/20 border border-accent/40 text-accent text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Authentic Manufacturing Specifications</span>
+            </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
+              Industrial Product Catalog
             </h1>
             <p className="text-base sm:text-lg text-slate-light leading-relaxed">
-              Engineered with 100% virgin polymer across European compact spinning lines, electronic twisters, and heavy-duty needle looms in Daman, India.
+              Engineered with 100% virgin polymer across 8 European compact spinning lines, electronic twisters, and heavy-duty needle looms in Daman, India. Comprehensive range from 200 to 6,000 Denier.
             </p>
+
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-slate-light">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-accent" />
+                Tenacity Up to 8.0 g/d
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-accent" />
+                10,000 MT Annual Capacity
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-accent" />
+                Registered Trademarks: THREADLON®, TUFF®, DPL®
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -62,7 +105,13 @@ export const ProductsPage: React.FC = () => {
                 >
                   {getProductIcon(p.category)}
                   <span>{p.name}</span>
-                  <span className={`text-[11px] px-2 py-0.5 rounded ${isSelected ? 'bg-accent text-primary-dark font-extrabold' : 'bg-slate/15 text-slate'}`}>
+                  <span
+                    className={`text-[11px] px-2 py-0.5 rounded ${
+                      isSelected
+                        ? 'bg-accent text-primary-dark font-extrabold'
+                        : 'bg-slate/15 text-slate'
+                    }`}
+                  >
                     {p.brand}
                   </span>
                 </button>
@@ -78,18 +127,25 @@ export const ProductsPage: React.FC = () => {
           <div className="bg-white rounded-xl border border-border p-6 sm:p-10 shadow-sm space-y-12">
             {/* Top Overview Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              {/* Product Visual Gallery */}
+              {/* Product Visual Gallery with Brand Badge */}
               <div className="lg:col-span-5 space-y-4">
-                <div className="relative aspect-4/3 bg-base rounded-lg border border-border p-6 flex items-center justify-center overflow-hidden">
+                <div className="relative aspect-4/3 bg-base rounded-xl border border-border p-6 flex items-center justify-center overflow-hidden group shadow-inner">
                   <img
                     src={selectedProduct.image}
                     alt={selectedProduct.name}
-                    className="max-h-full max-w-full object-contain"
+                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                   />
                   <div className="absolute top-4 left-4">
                     <Badge variant="gold" size="md">
                       Brand: {selectedProduct.brand}
                     </Badge>
+                  </div>
+
+                  {/* Brand Logo Floating Badge */}
+                  <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md rounded-lg p-2 border border-border shadow-xs flex items-center gap-2">
+                    {getBrandLogo(selectedProduct.brand).map((logo, lIdx) => (
+                      <img key={lIdx} src={logo} alt="Brand" className="h-7 object-contain" />
+                    ))}
                   </div>
                 </div>
 
@@ -98,9 +154,9 @@ export const ProductsPage: React.FC = () => {
                   {selectedProduct.gallery.map((imgSrc, i) => (
                     <div
                       key={i}
-                      className="aspect-square bg-base rounded border border-border p-2 flex items-center justify-center hover:border-accent transition-colors"
+                      className="aspect-square bg-base rounded-lg border border-border p-2 flex items-center justify-center hover:border-accent transition-colors shadow-2xs"
                     >
-                      <img src={imgSrc} alt="" className="max-h-full max-w-full object-contain" />
+                      <img src={imgSrc} alt="Gallery item" className="max-h-full max-w-full object-contain" />
                     </div>
                   ))}
                 </div>
@@ -112,12 +168,16 @@ export const ProductsPage: React.FC = () => {
                   <span className="text-xs font-bold uppercase tracking-widest text-slate block mb-1">
                     {selectedProduct.categoryLabel}
                   </span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold font-heading text-primary leading-tight">
+                  <h2 className="text-2xl sm:text-4xl font-extrabold font-heading text-primary leading-tight">
                     {selectedProduct.name}
                   </h2>
-                  <p className="text-sm font-semibold text-accent mt-1">
-                    Registered Brand: {selectedProduct.brand}
-                  </p>
+                  <div className="flex items-center gap-3 mt-2">
+                    <p className="text-sm font-bold text-accent">
+                      Registered Trademark: {selectedProduct.brand}
+                    </p>
+                    <span className="text-slate/40">•</span>
+                    <span className="text-xs text-slate font-medium">100% Virgin Polymer</span>
+                  </div>
                 </div>
 
                 <p className="text-base text-slate leading-relaxed">
@@ -126,12 +186,12 @@ export const ProductsPage: React.FC = () => {
 
                 {/* Key Salient Points */}
                 <div className="space-y-2 pt-2">
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-primary font-heading">
-                    Salient Technical Features
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-primary font-heading">
+                    Engineered Material Advantages
                   </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate">
-                    {selectedProduct.features.map((feat, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate">
+                    {selectedProduct.features.map((feat, i) => (
+                      <div key={i} className="flex items-start gap-2">
                         <CheckCircle2 className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
@@ -139,80 +199,84 @@ export const ProductsPage: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Action CTAs */}
-                <div className="pt-4 flex flex-wrap items-center gap-4">
+                {/* Action Buttons */}
+                <div className="pt-4 border-t border-border flex flex-wrap items-center gap-4">
                   <Button
-                    to={`/contact?product=${encodeURIComponent(selectedProduct.name)}`}
+                    to="/contact"
                     variant="gold"
                     size="md"
                     icon={<ArrowRight className="w-4 h-4" />}
                   >
-                    Request Technical RFQ
+                    Request Sample Spool / RFQ
                   </Button>
-                  <Button
-                    to="/contact"
-                    variant="secondary"
-                    size="md"
-                    icon={<Download className="w-4 h-4" />}
+                  <button
+                    type="button"
+                    onClick={handleDownloadSpec}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-md border border-border text-xs font-bold text-primary hover:bg-base transition-colors cursor-pointer"
                   >
-                    Request Sample Cones
-                  </Button>
+                    {downloadSuccess ? (
+                      <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                    ) : (
+                      <Download className="w-4 h-4 text-accent" />
+                    )}
+                    <span>{downloadSuccess ? 'Preparing Spec Sheet...' : 'Download Data Sheet (PDF)'}</span>
+                  </button>
                 </div>
               </div>
             </div>
 
-            {/* Technical Specifications Table */}
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
+            {/* Technical Parameter Specification Matrix */}
+            <div className="pt-8 border-t border-border text-left">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
-                  <h3 className="text-xl font-bold font-heading text-primary">
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent block">
                     Certified Technical Parameters
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-primary">
+                    Manufacturing Specification Matrix
                   </h3>
-                  <p className="text-xs text-slate mt-0.5">
-                    Verified through automated in-house tensile and twist testing equipment.
-                  </p>
                 </div>
-                <Badge variant="primary" size="sm">
-                  100% Tested
-                </Badge>
+                <div className="flex items-center gap-2 text-xs text-slate">
+                  <FileSpreadsheet className="w-4 h-4 text-accent" />
+                  <span>Tested per ISO & ASTM standards</span>
+                </div>
               </div>
 
-              <SpecTable specs={selectedProduct.specs} title={`${selectedProduct.name} - Specification Table`} />
+              <SpecTable specs={selectedProduct.specs} />
             </div>
 
-            {/* Application Showcase Grid */}
-            <div className="space-y-6 pt-6 border-t border-border">
-              <div>
-                <h3 className="text-xl font-bold font-heading text-primary">
-                  Industrial Applications for {selectedProduct.name}
-                </h3>
-                <p className="text-sm text-slate mt-1">
-                  Validated in high-speed converted technical textile products across global markets.
-                </p>
-              </div>
+            {/* Industrial Applications & Convertibility */}
+            <div className="pt-8 border-t border-border text-left">
+              <span className="text-xs font-bold uppercase tracking-wider text-accent block mb-1">
+                Field Usage & Converters
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold font-heading text-primary mb-6">
+                Recommended Downstream Applications
+              </h3>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                {selectedProduct.applications.map((app, aIdx) => (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {selectedProduct.applications.map((app, i) => (
                   <div
-                    key={aIdx}
-                    className="bg-base/70 rounded-lg border border-border/80 overflow-hidden group hover:border-accent/40 transition-colors flex flex-col"
+                    key={i}
+                    className="rounded-lg border border-border overflow-hidden bg-base/50 flex flex-col justify-between p-5 hover:border-accent transition-colors"
                   >
-                    <div className="aspect-square bg-white overflow-hidden p-2 flex items-center justify-center">
-                      {app.image ? (
-                        <img
-                          src={app.image}
-                          alt={app.name}
-                          className="w-full h-full object-cover rounded group-hover:scale-105 transition-transform duration-300"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="text-slate text-xs text-center p-2">Application Photo</div>
-                      )}
+                    <div className="flex items-start gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-accent/20 border border-accent/40 flex items-center justify-center shrink-0 text-accent font-bold text-xs">
+                        {i + 1}
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold font-heading text-primary">
+                          {app.name}
+                        </h4>
+                        <span className="text-[11px] text-slate mt-1 block">
+                          Engineered technical conversion grade
+                        </span>
+                      </div>
                     </div>
-                    <div className="p-2.5 flex-1 flex items-center justify-center text-center">
-                      <span className="text-xs font-semibold text-primary leading-snug line-clamp-2">
-                        {app.name}
-                      </span>
+
+                    <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs font-bold text-accent">
+                      <span>Suitable Grade Available</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </div>
                   </div>
                 ))}
@@ -222,11 +286,8 @@ export const ProductsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Quote CTA */}
-      <QuoteCTA
-        title="Need Technical Assistance or Custom Formulation?"
-        subtitle="Contact our production specialists to discuss specific Denier counts, TPM twist values, or custom color matching for your machinery."
-      />
+      {/* Quote Callout */}
+      <QuoteCTA />
     </div>
   );
 };

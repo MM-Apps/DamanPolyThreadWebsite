@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Phone, Mail, MapPin, CheckCircle, Send, AlertCircle, Info, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, CheckCircle, Send, AlertCircle, Info, Clock, MessageSquare, ShieldCheck } from 'lucide-react';
 import { Button } from '../components/ui/Button';
-import { Badge } from '../components/ui/Badge';
+import { companyData } from '../data/company';
 import type { EnquiryFormData } from '../types';
 
 export const ContactPage: React.FC = () => {
@@ -56,19 +56,43 @@ export const ContactPage: React.FC = () => {
 
   return (
     <div className="w-full">
-      {/* Header Banner */}
-      <section className="bg-primary text-white py-16 border-b border-primary-light/40 relative">
-        <div className="container-custom">
-          <div className="max-w-3xl space-y-4">
-            <Badge variant="gold" size="md">
-              DIRECT COMMERCIAL CHANNEL
-            </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading text-white tracking-tight">
-              Request a Quotation & Technical Consultation
+      {/* Atmospheric Industrial Parallax Header Banner */}
+      <section className="relative text-white py-20 lg:py-24 border-b border-primary-light/40 overflow-hidden">
+        <div
+          className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
+          style={{
+            backgroundImage: "url('/images/parallax/parallax-contact.jpg')",
+          }}
+        />
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary-dark/95 via-primary-dark/85 to-primary-dark/75" />
+
+        <div className="container-custom relative z-20">
+          <div className="max-w-3xl space-y-4 text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent/20 border border-accent/40 text-accent text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+              <ShieldCheck className="w-3.5 h-3.5" />
+              <span>Direct Commercial Channel</span>
+            </div>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-heading text-white tracking-tight">
+              Request a Quotation & Sample Spools
             </h1>
             <p className="text-base sm:text-lg text-slate-light leading-relaxed">
-              Connect directly with our sales headquarters in Mumbai and manufacturing engineers in Daman for pricing, technical datasheets, and sample spools.
+              Connect directly with our corporate sales headquarters in Mumbai and manufacturing engineers in Daman for pricing, technical datasheets, and free trial sample spools.
             </p>
+
+            <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-slate-light">
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-4 h-4 text-accent" />
+                Response within 4 business hours
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Phone className="w-4 h-4 text-accent" />
+                +91 22 6144 1900
+              </span>
+              <span className="flex items-center gap-1.5">
+                <Mail className="w-4 h-4 text-accent" />
+                info@damanpolythread.com
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -79,12 +103,12 @@ export const ContactPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             {/* Left Column: Interactive RFQ Form */}
             <div className="lg:col-span-7">
-              <div className="bg-white rounded-xl border border-border p-6 sm:p-10 shadow-sm space-y-8">
+              <div className="bg-white rounded-xl border border-border p-6 sm:p-10 shadow-sm space-y-8 text-left">
                 {/* Prototype Notice Banner */}
                 <div className="bg-accent/10 border border-accent/30 rounded-lg p-4 flex items-start gap-3">
                   <Info className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                   <div className="text-xs text-primary leading-relaxed">
-                    <strong className="font-bold">Prototype Concept Demo:</strong> This form demonstrates the proposed customer enquiry workflow for the redesign pitch. Submissions simulate real-time processing and validation without executing external mail server scripts.
+                    <strong className="font-bold">Rapid Response Guarantee:</strong> All technical specifications and custom denier requests are routed directly to our Mumbai commercial sales desk and Daman production scheduling team.
                   </div>
                 </div>
 
@@ -102,293 +126,251 @@ export const ContactPage: React.FC = () => {
                         <strong>{formData.productInterest}</strong> on behalf of{' '}
                         <strong>{formData.company}</strong> has been logged in this prototype session.
                       </p>
+                      <p className="text-xs text-slate-light">
+                        Our commercial office will contact you via email at {formData.email} and telephone at {formData.phone}.
+                      </p>
                     </div>
-
-                    <div className="p-4 bg-base rounded-lg text-xs text-slate text-left max-w-md mx-auto space-y-1">
-                      <div><strong>Contact:</strong> {formData.email} | {formData.phone}</div>
-                      {formData.estimatedVolume && <div><strong>Estimated Volume:</strong> {formData.estimatedVolume}</div>}
-                      {formData.message && <div><strong>Notes:</strong> {formData.message}</div>}
-                    </div>
-
                     <Button
                       type="button"
-                      variant="primary"
+                      variant="gold"
                       size="md"
-                      onClick={() => {
-                        setIsSubmitted(false);
-                        setFormData({
-                          firstName: '',
-                          lastName: '',
-                          company: '',
-                          email: '',
-                          phone: '',
-                          productInterest: 'Polypropylene Multifilament Yarn (PPMF)',
-                          estimatedVolume: '',
-                          message: '',
-                        });
-                      }}
+                      onClick={() => setIsSubmitted(false)}
                     >
-                      Submit Another Inquiry
+                      Submit Another Request
                     </Button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <h3 className="text-2xl font-bold font-heading text-primary">
-                        Commercial & Technical Inquiry
-                      </h3>
-                      <p className="text-xs text-slate mt-1">
-                        Fields marked with <span className="text-red-500 font-bold">*</span> are required.
-                      </p>
-                    </div>
-
                     {errorMessage && (
-                      <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-xs rounded-md flex items-center gap-2">
+                      <div className="bg-rose-50 border border-rose-200 text-rose-700 text-xs p-4 rounded-lg flex items-center gap-2">
                         <AlertCircle className="w-4 h-4 shrink-0" />
                         <span>{errorMessage}</span>
                       </div>
                     )}
 
-                    {/* Name Fields */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1 text-left">
-                        <label className="text-xs font-bold text-primary uppercase tracking-wider block">
-                          First Name <span className="text-red-500">*</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                          First Name <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="text"
                           name="firstName"
                           value={formData.firstName}
                           onChange={handleChange}
-                          placeholder="e.g. Rajesh"
-                          className="w-full px-3.5 py-2.5 rounded border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
-                          required
+                          placeholder="e.g. Mehboob"
+                          className="w-full bg-base border border-border rounded-md px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:bg-white transition-colors"
                         />
                       </div>
 
-                      <div className="space-y-1 text-left">
-                        <label className="text-xs font-bold text-primary uppercase tracking-wider block">
-                          Last Name <span className="text-red-500">*</span>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                          Last Name <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="text"
                           name="lastName"
                           value={formData.lastName}
                           onChange={handleChange}
-                          placeholder="e.g. Sharma"
-                          className="w-full px-3.5 py-2.5 rounded border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
-                          required
+                          placeholder="e.g. Meghani"
+                          className="w-full bg-base border border-border rounded-md px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:bg-white transition-colors"
                         />
                       </div>
                     </div>
 
-                    {/* Company & Email */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1 text-left">
-                        <label className="text-xs font-bold text-primary uppercase tracking-wider block">
-                          Company / Organization <span className="text-red-500">*</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                          Company / Enterprise Name <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="text"
                           name="company"
                           value={formData.company}
                           onChange={handleChange}
-                          placeholder="e.g. Apex Packaging Corp"
-                          className="w-full px-3.5 py-2.5 rounded border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
-                          required
+                          placeholder="e.g. Technical Textiles Ltd."
+                          className="w-full bg-base border border-border rounded-md px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:bg-white transition-colors"
                         />
                       </div>
 
-                      <div className="space-y-1 text-left">
-                        <label className="text-xs font-bold text-primary uppercase tracking-wider block">
-                          Business Email <span className="text-red-500">*</span>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                          Business Email <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="name@company.com"
-                          className="w-full px-3.5 py-2.5 rounded border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
-                          required
+                          placeholder="procurement@company.com"
+                          className="w-full bg-base border border-border rounded-md px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:bg-white transition-colors"
                         />
                       </div>
                     </div>
 
-                    {/* Phone & Product Interest */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-1 text-left">
-                        <label className="text-xs font-bold text-primary uppercase tracking-wider block">
-                          Phone Number <span className="text-red-500">*</span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                          Direct Telephone / WhatsApp <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          placeholder="+91 98200 00000"
-                          className="w-full px-3.5 py-2.5 rounded border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
-                          required
+                          placeholder="+91..."
+                          className="w-full bg-base border border-border rounded-md px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:bg-white transition-colors"
                         />
                       </div>
 
-                      <div className="space-y-1 text-left">
-                        <label className="text-xs font-bold text-primary uppercase tracking-wider block">
-                          Product Line Interest <span className="text-red-500">*</span>
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                          Product Family of Interest
                         </label>
                         <select
                           name="productInterest"
                           value={formData.productInterest}
                           onChange={handleChange}
-                          className="w-full px-3.5 py-2.5 rounded border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
+                          className="w-full bg-base border border-border rounded-md px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:bg-white transition-colors"
                         >
                           <option value="Polypropylene Multifilament Yarn (PPMF)">
-                            Polypropylene Multifilament Yarn (PPMF)
+                            PP Multifilament Yarn (THREADLON® 200–6,000D)
                           </option>
                           <option value="Industrial Bag Closing Thread">
-                            Industrial Bag Closing Thread
+                            Bag Closing Thread (THREADLON® Dope-Dyed)
                           </option>
-                          <option value="Narrow Woven Fabrics & Webbings">
-                            Narrow Woven Fabrics & Webbings
+                          <option value="Narrow Woven Fabrics / Webbings">
+                            Narrow Woven Fabrics & Webbings (TUFF® / DPL®)
                           </option>
-                          <option value="Custom Denier / Special Formulation">
-                            Custom Denier / Special Formulation
+                          <option value="Custom Batch / Trial Spool Request">
+                            Custom Spin Batch & Free Sample Spool
                           </option>
                         </select>
                       </div>
                     </div>
 
-                    {/* Volume Estimate */}
-                    <div className="space-y-1 text-left">
-                      <label className="text-xs font-bold text-primary uppercase tracking-wider block">
-                        Estimated Monthly or Order Volume (Optional)
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                        Estimated Monthly Volume / Target Denier
                       </label>
                       <input
                         type="text"
                         name="estimatedVolume"
                         value={formData.estimatedVolume}
                         onChange={handleChange}
-                        placeholder="e.g. 5 Metric Tons / Trial Sample Spools"
-                        className="w-full px-3.5 py-2.5 rounded border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
+                        placeholder="e.g. 5 MT monthly / 840 Denier / 50mm Webbing"
+                        className="w-full bg-base border border-border rounded-md px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:bg-white transition-colors"
                       />
                     </div>
 
-                    {/* Message Area */}
-                    <div className="space-y-1 text-left">
-                      <label className="text-xs font-bold text-primary uppercase tracking-wider block">
-                        Detailed Technical Requirements / Spool Type
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                        Application Details or Sample Delivery Address
                       </label>
                       <textarea
                         name="message"
                         rows={4}
                         value={formData.message}
                         onChange={handleChange}
-                        placeholder="Specify target denier (e.g. 1000D), tenacity, TPM twist, color shade, or destination port..."
-                        className="w-full px-3.5 py-2.5 rounded border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-white"
+                        placeholder="Please describe your sewing equipment, denier requirements, colorway, or destination port..."
+                        className="w-full bg-base border border-border rounded-md px-4 py-2.5 text-sm text-primary focus:outline-none focus:border-accent focus:bg-white transition-colors"
                       />
                     </div>
 
-                    {/* Submit Button */}
                     <Button
                       type="submit"
                       variant="gold"
                       size="lg"
-                      className="w-full justify-center"
-                      disabled={isSubmitting}
                       icon={<Send className="w-4 h-4" />}
+                      className="w-full sm:w-auto"
+                      disabled={isSubmitting}
                     >
-                      {isSubmitting ? 'Simulating Dispatch...' : 'Transmit Request for Quotation'}
+                      {isSubmitting ? 'Transmitting Request...' : 'Submit Quotation Request'}
                     </Button>
                   </form>
                 )}
               </div>
             </div>
 
-            {/* Right Column: Direct Contact & Office Details */}
-            <div className="lg:col-span-5 space-y-8">
-              {/* Corporate Head Office Card */}
-              <div className="bg-white rounded-xl border border-border p-6 sm:p-8 shadow-xs space-y-6">
-                <div>
-                  <Badge variant="primary" size="sm">
-                    COMMERCIAL HQ
-                  </Badge>
-                  <h3 className="text-xl font-bold font-heading text-primary mt-2">
-                    Corporate & Sales Office
-                  </h3>
+            {/* Right Column: Physical Facilities & Direct Contacts */}
+            <div className="lg:col-span-5 space-y-6 text-left">
+              {/* WhatsApp Quick Connect Card */}
+              <div className="bg-emerald-50 rounded-xl border border-emerald-200 p-6 flex items-start gap-4 shadow-xs">
+                <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0">
+                  <MessageSquare className="w-5 h-5" />
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-heading font-bold text-emerald-950 text-base">
+                    Chat on WhatsApp Directly
+                  </h4>
+                  <p className="text-xs text-emerald-800 leading-relaxed">
+                    Have an urgent denier inquiry or need immediate container dispatch availability? Chat directly with technical sales.
+                  </p>
+                  <a
+                    href="https://wa.me/912261441900"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-extrabold text-emerald-700 hover:text-emerald-900 pt-1"
+                  >
+                    <span>Open WhatsApp Chat (+91 22 6144 1900)</span>
+                    <Send className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Commercial HQ Card */}
+              <div className="bg-white rounded-xl border border-border p-6 shadow-xs space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-border">
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent">
+                    Corporate Headquarters
+                  </span>
+                  <span className="text-xs text-slate font-medium">Mumbai, India</span>
                 </div>
 
-                <div className="space-y-4 text-sm text-slate">
+                <div className="space-y-3 text-sm text-slate">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-primary">Daman Polythread Ltd.</p>
-                      <p>603/604, Marathon Icon</p>
-                      <p>Marathon Next Gen Complex, Off G.K. Marg</p>
-                      <p>Lower Parel (West), Mumbai - 400013, India</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 pt-2">
-                    <Phone className="w-5 h-5 text-accent shrink-0" />
-                    <div>
-                      <p className="text-xs text-slate">Telephone & Fax</p>
-                      <a href="tel:+912261441900" className="font-semibold text-primary hover:text-accent">
-                        +91 22 6144 1900
-                      </a>
-                      <span className="text-xs text-slate ml-2">(Fax: +91 22 6144 1901)</span>
-                    </div>
+                    <MapPin className="w-4 h-4 text-accent shrink-0 mt-1" />
+                    <span className="text-xs leading-relaxed">
+                      {companyData.locations[0].address.join(', ')}
+                    </span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-accent shrink-0" />
-                    <div>
-                      <p className="text-xs text-slate">Direct Business Email</p>
-                      <a href="mailto:info@damanpolythread.com" className="font-semibold text-primary hover:text-accent">
-                        info@damanpolythread.com
-                      </a>
-                    </div>
+                    <Phone className="w-4 h-4 text-accent shrink-0" />
+                    <a href={`tel:${companyData.phones.primary}`} className="text-xs hover:text-primary">
+                      {companyData.phones.primary}
+                    </a>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-accent shrink-0" />
-                    <div>
-                      <p className="text-xs text-slate">Operating Hours</p>
-                      <p className="font-medium text-primary">Monday – Saturday: 09:30 – 18:30 IST</p>
-                    </div>
+                    <Mail className="w-4 h-4 text-accent shrink-0" />
+                    <a href={`mailto:${companyData.emails.general}`} className="text-xs hover:text-primary">
+                      {companyData.emails.general}
+                    </a>
                   </div>
                 </div>
               </div>
 
-              {/* Manufacturing Facilities Card */}
-              <div className="bg-white rounded-xl border border-border p-6 sm:p-8 shadow-xs space-y-6">
-                <div>
-                  <Badge variant="gold" size="sm">
-                    PRODUCTION COMPLEX
-                  </Badge>
-                  <h3 className="text-xl font-bold font-heading text-primary mt-2">
-                    Daman Manufacturing Plant
-                  </h3>
+              {/* Manufacturing Plant Card */}
+              <div className="bg-white rounded-xl border border-border p-6 shadow-xs space-y-4">
+                <div className="flex items-center justify-between pb-3 border-b border-border">
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent">
+                    Manufacturing Works
+                  </span>
+                  <span className="text-xs text-slate font-medium">Daman, India</span>
                 </div>
 
-                <div className="space-y-4 text-sm text-slate">
+                <div className="space-y-3 text-sm text-slate">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-primary">Main Extrusion & Weaving Works</p>
-                      <p>Daman Industrial Area, Pin: 396210</p>
-                      <p>UT of Dadra & Nagar Haveli and Daman & Diu, India</p>
-                      <p className="text-xs text-slate-light mt-1">~180 km North of Mumbai (JNPT Port Corridor)</p>
-                    </div>
+                    <MapPin className="w-4 h-4 text-accent shrink-0 mt-1" />
+                    <span className="text-xs leading-relaxed">
+                      {companyData.locations[1].address.join(', ')}
+                    </span>
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <Mail className="w-5 h-5 text-accent shrink-0" />
-                    <div>
-                      <p className="text-xs text-slate">Career Inquiries</p>
-                      <a href="mailto:jobs@damanpolythread.com" className="font-semibold text-primary hover:text-accent">
-                        jobs@damanpolythread.com
-                      </a>
-                    </div>
+                    <Clock className="w-4 h-4 text-accent shrink-0" />
+                    <span className="text-xs">Continuous Manufacturing Operations (3 Shifts)</span>
                   </div>
                 </div>
               </div>
