@@ -87,10 +87,10 @@ const slides: Slide[] = [
 ];
 
 const highlights = [
-  { value: '10,000 MT', label: 'Annual PP Extrusion Capacity', sub: 'Largest manufacturer in India' },
-  { value: '8.0 g/d', label: 'Maximum Tensile Tenacity', sub: 'High-tenacity filament engineering' },
-  { value: '200 – 6,000', label: 'Comprehensive Denier Range', sub: 'Customizable count & filaments' },
-  { value: '8 European Lines', label: 'Compact Spinning Plant', sub: 'Closed-loop automated HMI' },
+  { value: 'Est. 2000', label: '1st in India', sub: 'Pioneered HT PPMF yarn extrusion' },
+  { value: '10,000 MT', label: 'Annual PP Extrusion', sub: '8 European compact spinning lines' },
+  { value: '200 – 6,000', label: 'Denier Range', sub: 'Up to 8.0 g/d tensile tenacity' },
+  { value: '50+ Shades', label: 'Dope-Dyed Colors', sub: 'UV-stabilized & 100% colorfast' },
 ];
 
 export const HeroSection: React.FC = () => {

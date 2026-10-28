@@ -110,33 +110,37 @@ export const ManufacturingProcess: React.FC = () => {
                 key={idx}
                 type="button"
                 onClick={() => setActiveStep(idx)}
-                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer flex flex-col justify-between min-h-[110px] ${
+                className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer flex flex-col justify-between min-h-[110px] ${
                   isActive
                     ? 'bg-primary text-white border-primary shadow-md scale-[1.03]'
-                    : 'bg-base text-slate border-border hover:border-slate hover:bg-white'
+                    : 'bg-white text-primary border-border hover:border-accent hover:shadow-2xs'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
                   <span
                     className={`text-xs font-black font-heading ${
-                      isActive ? 'text-accent' : 'text-slate'
+                      isActive ? 'text-accent' : 'text-primary'
                     }`}
                   >
-                    {st.step}
+                    Stage {st.step}
                   </span>
-                  <div className={`p-1 rounded-md ${isActive ? 'bg-white/10' : 'bg-white'}`}>
+                  <div className={`p-1.5 rounded-md ${isActive ? 'bg-white/10' : 'bg-base'}`}>
                     {st.icon}
                   </div>
                 </div>
                 <div>
                   <h4
-                    className={`text-xs font-bold font-heading line-clamp-1 ${
+                    className={`text-xs font-extrabold font-heading line-clamp-1 ${
                       isActive ? 'text-white' : 'text-primary'
                     }`}
                   >
                     {st.title}
                   </h4>
-                  <span className="text-[10px] text-slate-light block line-clamp-1 mt-0.5">
+                  <span
+                    className={`text-[10px] font-medium block line-clamp-1 mt-0.5 ${
+                      isActive ? 'text-slate-light' : 'text-slate'
+                    }`}
+                  >
                     {st.subtitle}
                   </span>
                 </div>

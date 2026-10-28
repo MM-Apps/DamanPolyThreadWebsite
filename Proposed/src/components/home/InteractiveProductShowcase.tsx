@@ -143,14 +143,16 @@ export const InteractiveProductShowcase: React.FC = () => {
                 key={tab.id}
                 type="button"
                 onClick={() => handleTabChange(idx)}
-                className={`px-5 py-3.5 rounded-lg font-heading text-sm sm:text-base font-bold transition-all cursor-pointer flex items-center gap-2.5 ${
+                className={`px-5 py-3.5 rounded-lg font-heading text-sm sm:text-base font-bold transition-all cursor-pointer flex items-center gap-2.5 border-2 ${
                   isActive
-                    ? 'bg-primary text-white shadow-md shadow-primary/20 scale-[1.02]'
-                    : 'bg-base text-slate hover:text-primary hover:bg-slate/10'
+                    ? 'bg-primary border-primary text-white shadow-md shadow-primary/20 scale-[1.02]'
+                    : 'bg-white border-border text-primary hover:border-accent shadow-2xs'
                 }`}
               >
-                <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-accent' : 'bg-slate/40'}`} />
-                <span>{tab.name}</span>
+                <span className={`w-2.5 h-2.5 rounded-full ${isActive ? 'bg-accent' : 'bg-accent'}`} />
+                <span className={isActive ? 'text-white font-extrabold' : 'text-primary font-bold'}>
+                  {tab.name}
+                </span>
               </button>
             );
           })}
