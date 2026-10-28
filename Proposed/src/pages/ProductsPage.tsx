@@ -53,7 +53,21 @@ export const ProductsPage: React.FC = () => {
             backgroundImage: "url('/images/parallax/parallax-ppmf.jpg')",
           }}
         />
-        <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary-dark/95 via-primary-dark/85 to-primary-dark/75" />
+        {/* Scrim: keeps the headline column solid, lets the bright cone photography read through on the right. */}
+        <div
+          className="absolute inset-0 z-10 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(10,23,38,0.95) 0%, rgba(10,23,38,0.88) 45%, rgba(10,23,38,0.52) 75%, rgba(10,23,38,0.18) 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 z-10 pointer-events-none"
+          style={{
+            background:
+              'linear-gradient(to top, rgba(10,23,38,0.72) 0%, rgba(10,23,38,0.08) 35%, rgba(10,23,38,0.32) 100%)',
+          }}
+        />
 
         <div className="container-custom relative z-20">
           <div className="max-w-3xl space-y-4 text-left">
