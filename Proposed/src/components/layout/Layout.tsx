@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { SiteHeader } from './SiteHeader';
 import { SiteFooter } from './SiteFooter';
+import { QuickContactBar } from '../ui/QuickContactBar';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,7 +21,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="flex-1 w-full">
         {children}
       </main>
+      <QuickContactBar />
       <SiteFooter />
     </div>
   );
 };
+

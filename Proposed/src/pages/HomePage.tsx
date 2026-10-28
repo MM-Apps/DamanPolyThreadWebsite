@@ -2,9 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { HeroSection } from '../components/home/HeroSection';
+import { InteractiveProductShowcase } from '../components/home/InteractiveProductShowcase';
+import { ParallaxDivider } from '../components/home/ParallaxDivider';
+import { ManufacturingProcess } from '../components/home/ManufacturingProcess';
 import { CapabilitiesSection } from '../components/home/CapabilitiesSection';
 import { QualityBanner } from '../components/home/QualityBanner';
-import { ProductGrid } from '../components/products/ProductGrid';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
 import { Button } from '../components/ui/Button';
@@ -52,7 +54,7 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="w-full">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section with Ken Burns Cinematic Slider */}
       <HeroSection />
 
       {/* 2. Key Metrics Bar */}
@@ -78,34 +80,19 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. Products Showcase */}
-      <section className="py-20 bg-base border-b border-border">
-        <div className="container-custom">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <SectionHeading
-              eyebrow="TECHNICAL PRODUCT CATALOG"
-              title="Engineered Synthetic Thread & Yarns"
-              subtitle="Manufactured using 100% virgin polymer across high-tenacity multifilament yarns, industrial sewing threads, and custom webbings."
-            />
-            <Button
-              to="/products"
-              variant="outline"
-              size="md"
-              icon={<ArrowRight className="w-4 h-4" />}
-              className="self-start md:self-auto shrink-0"
-            >
-              Full Specifications
-            </Button>
-          </div>
+      {/* 3. Interactive Product Showcase (Tabbed with cycling spool carousels) */}
+      <InteractiveProductShowcase />
 
-          <ProductGrid />
-        </div>
-      </section>
+      {/* 4. Atmospheric Industrial Parallax Divider & Registered Brands */}
+      <ParallaxDivider />
 
-      {/* 4. Manufacturing Capabilities */}
+      {/* 5. Manufacturing Capabilities Tour */}
       <CapabilitiesSection />
 
-      {/* 5. Industries Served Grid */}
+      {/* 6. Step-by-Step Manufacturing Process Pipeline */}
+      <ManufacturingProcess />
+
+      {/* 7. Industries Served Grid */}
       <section className="py-20 bg-base border-b border-border">
         <div className="container-custom">
           <SectionHeading
@@ -162,10 +149,10 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Quality & Lab Testing */}
+      {/* 7. Quality & Lab Testing Banner */}
       <QualityBanner />
 
-      {/* 7. Why Daman Polythread Strip */}
+      {/* 8. Technical Partnership & Sample Spool Offer */}
       <section className="py-16 bg-white border-b border-border">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto bg-base/60 rounded-xl border border-border p-8 md:p-12">
@@ -205,7 +192,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 8. Conversion Quote CTA */}
+      {/* 9. Conversion Quote CTA */}
       <QuoteCTA />
     </div>
   );
