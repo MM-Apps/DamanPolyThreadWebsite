@@ -10,7 +10,6 @@ import { QualityBanner } from '../components/home/QualityBanner';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
 import { Button } from '../components/ui/Button';
-import { companyData } from '../data/company';
 
 export const HomePage: React.FC = () => {
   const industries = [
@@ -54,45 +53,26 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="w-full">
-      {/* 1. Hero Section with Ken Burns Cinematic Slider */}
+      {/* 1. Hero Section with Ken Burns Cinematic Slider.
+          The hero already anchors four metric cards to its bottom edge, so a
+          second stat band directly beneath it only repeated the same numbers
+          ("10,000 MT" twice within one screen). The page now opens on the
+          hero and goes straight into the product showcase. */}
       <HeroSection />
 
-      {/* 2. Key Metrics Bar */}
-      <section className="bg-white border-b border-border py-10 shadow-2xs">
-        <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {companyData.stats.map((stat, idx) => (
-              <div key={idx} className="border-l-2 border-accent pl-4 sm:pl-6 text-left">
-                <span className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-primary block tracking-tight">
-                  {stat.value}
-                </span>
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-primary mt-1 block">
-                  {stat.label}
-                </span>
-                {stat.subtext && (
-                  <p className="text-xs text-slate mt-1 line-clamp-2">
-                    {stat.subtext}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Interactive Product Showcase (Tabbed with cycling spool carousels) */}
+      {/* 2. Interactive Product Showcase (Tabbed with cycling spool carousels) */}
       <InteractiveProductShowcase />
 
-      {/* 4. Atmospheric Industrial Parallax Divider & Registered Brands */}
+      {/* 3. Atmospheric Industrial Parallax Divider & Registered Brands */}
       <ParallaxDivider />
 
-      {/* 5. Manufacturing Capabilities Tour */}
+      {/* 4. Manufacturing Capabilities Tour */}
       <CapabilitiesSection />
 
-      {/* 6. Step-by-Step Manufacturing Process Pipeline */}
+      {/* 5. Step-by-Step Manufacturing Process Pipeline */}
       <ManufacturingProcess />
 
-      {/* 7. Industries Served Grid */}
+      {/* 6. Industries Served Grid */}
       <section className="py-20 bg-base border-b border-border">
         <div className="container-custom">
           <SectionHeading

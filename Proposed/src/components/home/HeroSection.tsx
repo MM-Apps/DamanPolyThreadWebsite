@@ -471,18 +471,18 @@ export const HeroSection: React.FC = () => {
             {highlights.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white/5 border border-white/10 rounded-lg p-2.5 sm:p-4 hover:border-accent/40 transition-all group min-w-0"
+                className="bg-white/5 border border-white/10 rounded-lg p-3 sm:p-5 hover:border-accent/40 transition-all group min-w-0"
               >
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent/80 group-hover:text-accent transition-colors shrink-0" />
-                  <span className="text-base sm:text-xl lg:text-2xl font-black text-accent font-heading truncate">
+                  <span className="text-lg sm:text-2xl lg:text-3xl font-black text-accent font-heading tracking-tight">
                     {item.value}
                   </span>
                 </div>
-                <span className="text-[11px] sm:text-xs font-bold text-white uppercase tracking-wider block mt-1 truncate">
+                <span className="text-[11px] sm:text-xs font-bold text-white uppercase tracking-wider block mt-1.5">
                   {item.label}
                 </span>
-                <span className="text-[10px] sm:text-[11px] text-slate-light block mt-0.5 truncate">
+                <span className="hidden sm:block text-[10px] sm:text-[11px] text-slate-light mt-1">
                   {item.sub}
                 </span>
               </div>
