@@ -160,19 +160,21 @@ export const HeroSection: React.FC = () => {
         })}
 
         {/* Cinematic scrim: holds the left text column solidly dark, then opens up
-            so the spool photography reads through behind the glass RFQ card. */}
+            so the spool photography reads through behind the glass RFQ card.
+            The right half is deliberately light — the plant photography is the
+            strongest thing on the page and the glass card is designed to sit on it. */}
         <div
           className="absolute inset-0 z-20 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to right, rgba(10,23,38,0.97) 0%, rgba(10,23,38,0.90) 50%, rgba(10,23,38,0.42) 78%, rgba(10,23,38,0.10) 100%)',
+              'linear-gradient(to right, rgba(10,23,38,0.97) 0%, rgba(10,23,38,0.88) 40%, rgba(10,23,38,0.34) 72%, rgba(10,23,38,0.06) 100%)',
           }}
         />
         <div
           className="absolute inset-0 z-20 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to top, rgba(10,23,38,0.78) 0%, rgba(10,23,38,0.22) 28%, rgba(10,23,38,0.42) 100%)',
+              'linear-gradient(to top, rgba(10,23,38,0.55) 0%, rgba(10,23,38,0.12) 32%, rgba(10,23,38,0.38) 100%)',
           }}
         />
         <div
