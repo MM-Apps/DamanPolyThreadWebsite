@@ -61,22 +61,23 @@ export const ContactPage: React.FC = () => {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/images/parallax/parallax-quality.jpg')",
+            backgroundImage: "url('/images/parallax/parallax-nwf.jpg')",
           }}
         />
-        {/* Scrim: keeps the headline column solid, lets the winding floor read through on the right. */}
+        {/* Scrim: the fabric roll is the brightest, most saturated asset on the site, so the left
+            column goes near-opaque to carry white text while the colour arcs open up on the right. */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to right, rgba(10,23,38,0.95) 0%, rgba(10,23,38,0.88) 45%, rgba(10,23,38,0.55) 75%, rgba(10,23,38,0.25) 100%)',
+              'linear-gradient(to right, rgba(10,23,38,0.96) 0%, rgba(10,23,38,0.90) 40%, rgba(10,23,38,0.58) 58%, rgba(10,23,38,0.20) 80%, rgba(10,23,38,0.06) 100%)',
           }}
         />
         <div
           className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to top, rgba(10,23,38,0.72) 0%, rgba(10,23,38,0.10) 35%, rgba(10,23,38,0.35) 100%)',
+              'linear-gradient(to top, rgba(10,23,38,0.58) 0%, rgba(10,23,38,0.04) 38%, rgba(10,23,38,0.30) 100%)',
           }}
         />
 
