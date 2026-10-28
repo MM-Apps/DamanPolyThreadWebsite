@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Phone, Mail, MapPin, CheckCircle, Send, AlertCircle, Info, Clock, MessageSquare, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, MapPin, CheckCircle, Send, AlertCircle, Info, Clock, MessageSquare, ShieldCheck, ExternalLink, Anchor, Factory, Truck, ChevronRight } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { companyData } from '../data/company';
 import type { EnquiryFormData } from '../types';
@@ -363,7 +363,26 @@ export const ContactPage: React.FC = () => {
                       {companyData.emails.general}
                     </a>
                   </div>
+
+                  <div className="flex items-start gap-3 pt-3 border-t border-border">
+                    <Clock className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                    <div className="text-xs leading-relaxed">
+                      <span className="block font-bold text-primary">Commercial Desk Hours</span>
+                      <span>Mon – Sat · 9:00 – 18:00 IST (UTC+5:30)</span>
+                      <span className="block text-slate-light">Quotations answered within 4 business hours</span>
+                    </div>
+                  </div>
                 </div>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Marathon+Icon+Lower+Parel+West+Mumbai+400013"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate hover:text-primary pt-1"
+                >
+                  <span>Open in Google Maps</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
 
               {/* Manufacturing Plant Card */}
@@ -383,13 +402,86 @@ export const ContactPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <Clock className="w-4 h-4 text-accent shrink-0" />
-                    <span className="text-xs">Continuous Manufacturing Operations (3 Shifts)</span>
+                  <div className="flex items-start gap-3 pt-3 border-t border-border">
+                    <Clock className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                    <div className="text-xs leading-relaxed">
+                      <span className="block font-bold text-primary">Plant Operations</span>
+                      <span>Continuous production · 3 shifts, 24 hours</span>
+                      <span className="block text-slate-light">Visitor walkthroughs by prior appointment</span>
+                    </div>
                   </div>
+                </div>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Daman+Industrial+Area+Daman+396210"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate hover:text-primary pt-1"
+                >
+                  <span>Open in Google Maps</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Supply Corridor: full-width band so the plant → port flow reads
+              left to right, and the form/locations columns stay level. */}
+          <div className="mt-12 bg-primary rounded-xl border border-primary-light/50 p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-wrap items-baseline justify-between gap-3 pb-5 border-b border-primary-light/40">
+              <h3 className="font-heading font-bold text-white text-lg">
+                From Our Plant to Your Port
+              </h3>
+              <span className="text-xs font-bold uppercase tracking-wider text-accent">
+                180 km • Daman to JNPT
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0 pt-6 text-left">
+              <div className="flex items-start gap-4 md:pr-8">
+                <div className="w-10 h-10 rounded-full bg-accent/15 border border-accent/40 flex items-center justify-center shrink-0">
+                  <Factory className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <span className="block text-sm font-bold text-white">Daman Manufacturing Works</span>
+                  <span className="block text-xs text-slate-light leading-relaxed mt-1">
+                    Spinning, twisting, weaving and lab release under one roof
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 md:px-8 md:border-x md:border-primary-light/40">
+                <div className="w-10 h-10 rounded-full bg-accent/15 border border-accent/40 flex items-center justify-center shrink-0">
+                  <Truck className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <span className="block text-sm font-bold text-white">Overland Corridor</span>
+                  <span className="block text-xs text-slate-light leading-relaxed mt-1">
+                    Dedicated road freight north along the NH-48 industrial belt
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 md:pl-8">
+                <div className="w-10 h-10 rounded-full bg-accent/15 border border-accent/40 flex items-center justify-center shrink-0">
+                  <Anchor className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <span className="block text-sm font-bold text-white">JNPT & Mumbai Port</span>
+                  <span className="block text-xs text-slate-light leading-relaxed mt-1">
+                    FCL and LCL container loading for export consignments
+                  </span>
                 </div>
               </div>
             </div>
+
+            <p className="mt-6 pt-5 border-t border-primary-light/40 text-xs text-slate-light flex items-center gap-2">
+              <ChevronRight className="w-4 h-4 text-accent shrink-0" />
+              <span>
+                Single-point commercial desk in Mumbai, single-point production in Daman — no
+                third-party agent between your purchase order and the shipment.
+              </span>
+            </p>
           </div>
         </div>
       </section>
