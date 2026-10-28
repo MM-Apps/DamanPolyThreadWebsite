@@ -240,11 +240,11 @@ export const HeroSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent" />
-                <span>200 – 6,000 Denier</span>
+                <span>Mill Test Certificate Per Lot</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent" />
-                <span>Tenacity up to 8.0 g/d</span>
+                <span>Dedicated QC at Every Unit</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent" />
