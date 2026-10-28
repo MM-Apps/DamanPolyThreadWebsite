@@ -278,7 +278,7 @@ export const HeroSection: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleQuickSubmit} className="space-y-3.5 text-left">
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="text-[11px] font-bold text-slate-light block mb-1">
                         Your Name *
@@ -321,7 +321,7 @@ export const HeroSection: React.FC = () => {
                     />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="text-[11px] font-bold text-slate-light block mb-1">
                         Product Family
@@ -329,7 +329,7 @@ export const HeroSection: React.FC = () => {
                       <select
                         value={formData.product}
                         onChange={(e) => setFormData({ ...formData, product: e.target.value })}
-                        className="w-full bg-primary border border-white/20 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-accent"
+                        className="w-full bg-primary border border-white/20 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-accent truncate"
                       >
                         <option>PPMF Yarn (200 - 6,000D)</option>
                         <option>Bag Closing Thread (THREADLON)</option>
@@ -345,7 +345,7 @@ export const HeroSection: React.FC = () => {
                       <select
                         value={formData.denier}
                         onChange={(e) => setFormData({ ...formData, denier: e.target.value })}
-                        className="w-full bg-primary border border-white/20 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-accent"
+                        className="w-full bg-primary border border-white/20 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-accent truncate"
                       >
                         <option>Fine Denier (200 - 600D)</option>
                         <option>Medium Denier (800 - 1500D)</option>
@@ -452,24 +452,24 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Industrial Credibility Metric Cards anchored at bottom */}
-      <div className="relative z-30 bg-primary-dark/85 backdrop-blur-md border-t border-white/10 py-5">
+      <div className="relative z-30 bg-primary-dark/85 backdrop-blur-md border-t border-white/10 py-4 sm:py-5">
         <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6">
             {highlights.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white/5 border border-white/10 rounded-lg p-3 sm:p-4 hover:border-accent/40 transition-all group"
+                className="bg-white/5 border border-white/10 rounded-lg p-2.5 sm:p-4 hover:border-accent/40 transition-all group min-w-0"
               >
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-accent/80 group-hover:text-accent transition-colors" />
-                  <span className="text-xl sm:text-2xl font-black text-accent font-heading">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent/80 group-hover:text-accent transition-colors shrink-0" />
+                  <span className="text-base sm:text-xl lg:text-2xl font-black text-accent font-heading truncate">
                     {item.value}
                   </span>
                 </div>
-                <span className="text-xs font-bold text-white uppercase tracking-wider block mt-1 line-clamp-1">
+                <span className="text-[11px] sm:text-xs font-bold text-white uppercase tracking-wider block mt-1 truncate">
                   {item.label}
                 </span>
-                <span className="text-[11px] text-slate-light block mt-0.5 line-clamp-1">
+                <span className="text-[10px] sm:text-[11px] text-slate-light block mt-0.5 truncate">
                   {item.sub}
                 </span>
               </div>

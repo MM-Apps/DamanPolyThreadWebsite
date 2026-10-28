@@ -29,6 +29,12 @@
     font-family: var(--font-sans);
     color: var(--color-primary);
     background-color: var(--color-base);
+    overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {

@@ -135,7 +135,7 @@ export const InteractiveProductShowcase: React.FC = () => {
         </div>
 
         {/* Tab Selection Navigation Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-2.5 sm:gap-4 mb-10 sm:mb-12">
           {productTabs.map((tab, idx) => {
             const isActive = idx === activeTabIdx;
             return (
@@ -143,13 +143,13 @@ export const InteractiveProductShowcase: React.FC = () => {
                 key={tab.id}
                 type="button"
                 onClick={() => handleTabChange(idx)}
-                className={`px-5 py-3.5 rounded-lg font-heading text-sm sm:text-base font-bold transition-all cursor-pointer flex items-center gap-2.5 border-2 ${
+                className={`w-full sm:w-auto px-4 py-3 sm:px-5 sm:py-3.5 rounded-lg font-heading text-xs sm:text-base font-bold transition-all cursor-pointer flex items-center justify-center sm:justify-start gap-2.5 border-2 ${
                   isActive
-                    ? 'bg-primary border-primary text-white shadow-md shadow-primary/20 scale-[1.02]'
+                    ? 'bg-primary border-primary text-white shadow-md shadow-primary/20 scale-[1.01] sm:scale-[1.02]'
                     : 'bg-white border-border text-primary hover:border-accent shadow-2xs'
                 }`}
               >
-                <span className={`w-2.5 h-2.5 rounded-full ${isActive ? 'bg-accent' : 'bg-accent'}`} />
+                <span className="w-2.5 h-2.5 rounded-full bg-accent shrink-0" />
                 <span className={isActive ? 'text-white font-extrabold' : 'text-primary font-bold'}>
                   {tab.name}
                 </span>

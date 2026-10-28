@@ -101,8 +101,8 @@ export const ManufacturingProcess: React.FC = () => {
           </Button>
         </div>
 
-        {/* Desktop Interactive Stepper Timeline */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-10">
+        {/* Interactive Stepper Timeline: Horizontally scrollable on mobile, 7-column grid on desktop */}
+        <div className="flex sm:grid sm:grid-cols-4 lg:grid-cols-7 overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 gap-2.5 sm:gap-3 mb-10">
           {steps.map((st, idx) => {
             const isActive = idx === activeStep;
             return (
@@ -110,9 +110,9 @@ export const ManufacturingProcess: React.FC = () => {
                 key={idx}
                 type="button"
                 onClick={() => setActiveStep(idx)}
-                className={`p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer flex flex-col justify-between min-h-[110px] ${
+                className={`min-w-[150px] sm:min-w-0 shrink-0 sm:shrink p-3 sm:p-3.5 rounded-xl border-2 text-left transition-all cursor-pointer flex flex-col justify-between min-h-[105px] sm:min-h-[110px] ${
                   isActive
-                    ? 'bg-primary text-white border-primary shadow-md scale-[1.03]'
+                    ? 'bg-primary text-white border-primary shadow-md scale-[1.02]'
                     : 'bg-white text-primary border-border hover:border-accent hover:shadow-2xs'
                 }`}
               >
