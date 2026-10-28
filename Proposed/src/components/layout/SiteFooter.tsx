@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, ArrowRight, ShieldCheck, Award } from 'lucide-react';
 import { companyData } from '../../data/company';
 
-export const SiteFooter: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+const CURRENT_YEAR = new Date().getFullYear();
 
+export const SiteFooter: React.FC = () => {
   return (
     <footer className="bg-primary text-white border-t border-primary-light/40">
       {/* Top Banner: Industrial Credibility Bar */}
@@ -176,7 +176,7 @@ export const SiteFooter: React.FC = () => {
       <div className="border-t border-primary-light/20 py-6 bg-primary-dark">
         <div className="container-custom flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-light">
           <p>
-            © {currentYear} Daman Polythread Ltd. All rights reserved. Registered Trademarks: THREADLON, TUFF, DPL.
+            © {CURRENT_YEAR} Daman Polythread Ltd. All rights reserved. Registered Trademarks: THREADLON, TUFF, DPL.
           </p>
           <p className="text-[11px] text-slate-light/70 text-center md:text-right">
             Redesign Pitch Concept & Prototype. Content and technical specifications verified from original company publications.
