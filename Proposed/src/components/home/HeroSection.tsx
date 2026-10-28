@@ -103,8 +103,8 @@ export const HeroSection: React.FC = () => {
     name: '',
     phone: '',
     email: '',
-    product: 'PPMF Yarn (200 - 6,000 Denier)',
-    denier: 'Medium Denier (800 - 1500D)',
+    product: 'PPMF Yarn (200 - 6,000D)',
+    denier: 'Medium (800 - 1500D)',
     needSample: true,
   });
 
@@ -362,10 +362,10 @@ export const HeroSection: React.FC = () => {
                         onChange={(e) => setFormData({ ...formData, denier: e.target.value })}
                         className="w-full bg-primary border border-white/20 rounded-md px-3 py-2 text-xs text-white focus:outline-none focus:border-accent truncate"
                       >
-                        <option>Fine Denier (200 - 600D)</option>
-                        <option>Medium Denier (800 - 1500D)</option>
-                        <option>Heavy Denier (1800 - 6000D)</option>
-                        <option>Webbing (10mm - 100mm)</option>
+                        <option>Fine (200 - 600D)</option>
+                        <option>Medium (800 - 1500D)</option>
+                        <option>Heavy (1800 - 6000D)</option>
+                        <option>Webbing (10 - 100mm)</option>
                       </select>
                     </div>
                   </div>
