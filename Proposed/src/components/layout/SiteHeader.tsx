@@ -52,21 +52,14 @@ export const SiteHeader: React.FC = () => {
       {/* Main Navigation Bar */}
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
-          {/* Logo & Brand Identity */}
-          <Link to="/" className="flex items-center gap-3.5 group">
-            <img
-              src="/images/logo.png"
-              alt="Daman Polythread Ltd."
-              className="h-12 w-auto object-contain transition-transform group-hover:scale-105"
-            />
-            <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-extrabold tracking-tight font-heading text-primary leading-tight">
-                DAMAN <span className="text-slate">POLYTHREAD</span>
-              </span>
-              <span className="text-[10px] sm:text-xs font-semibold tracking-wider uppercase text-slate">
-                High-Tenacity Industrial Yarns
-              </span>
-            </div>
+          {/* Brand Identity - Text Only */}
+          <Link to="/" className="flex flex-col group">
+            <span className="text-xl sm:text-2xl font-extrabold tracking-tight font-heading text-primary leading-tight group-hover:text-primary-light transition-colors">
+              DAMAN <span className="text-accent">POLYTHREAD</span>
+            </span>
+            <span className="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-slate">
+              Precision Industrial Yarns • Est. 2000
+            </span>
           </Link>
 
           {/* Desktop Navigation Links */}

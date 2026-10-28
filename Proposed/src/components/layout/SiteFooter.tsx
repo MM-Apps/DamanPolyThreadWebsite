@@ -56,22 +56,13 @@ export const SiteFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand & Mission Column */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="bg-white p-1 rounded">
-                <img
-                  src="/images/logo.png"
-                  alt="Daman Polythread Ltd."
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-extrabold font-heading text-white tracking-tight">
-                  DAMAN POLYTHREAD
-                </span>
-                <span className="text-[10px] tracking-wider uppercase text-accent font-semibold">
-                  Precision Industrial Yarns
-                </span>
-              </div>
+            <Link to="/" className="flex flex-col">
+              <span className="text-2xl font-extrabold font-heading text-white tracking-tight">
+                DAMAN <span className="text-accent">POLYTHREAD</span>
+              </span>
+              <span className="text-[10px] tracking-widest uppercase text-slate-light font-bold">
+                Precision Industrial Yarns • Est. 2000
+              </span>
             </Link>
 
             <p className="text-sm text-slate-light leading-relaxed pr-6">
