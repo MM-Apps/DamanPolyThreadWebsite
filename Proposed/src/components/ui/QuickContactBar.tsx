@@ -1,16 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Phone, MessageSquare, Send, X, ShieldCheck, ArrowRight } from 'lucide-react';
 import { companyData } from '../../data/company';
 
 export const QuickContactBar: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [sent, setSent] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     requirement: '',
   });
+
+  // Hold the widget out of the first viewport so the hero lands uncluttered,
+  // then bring it in once the visitor has started reading.
+  useEffect(() => {
+    const onScroll = () => setRevealed(window.scrollY > 360);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Modal dismissal + scroll lock while the RFQ sheet is open.
+  useEffect(() => {
+    if (!modalOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setModalOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [modalOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,7 +47,9 @@ export const QuickContactBar: React.FC = () => {
       {/* Floating Action Trigger Button on Desktop & Mobile */}
       <aside
         aria-label="Quick inquiry options"
-        className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2.5 pointer-events-auto"
+        className={`fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2.5 pointer-events-auto transition-all duration-300 ${
+          revealed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
       >
         <button
           type="button"
@@ -59,6 +86,9 @@ export const QuickContactBar: React.FC = () => {
           onClick={() => setModalOpen(false)}
         >
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="quick-rfq-title"
             className="bg-white rounded-2xl border border-border shadow-2xl max-w-md w-full p-6 sm:p-8 relative text-left"
             onClick={(e) => e.stopPropagation()}
           >
@@ -76,7 +106,7 @@ export const QuickContactBar: React.FC = () => {
               <span>Direct Factory Dispatch</span>
             </div>
 
-            <h3 className="text-xl sm:text-2xl font-extrabold font-heading text-primary">
+            <h3 id="quick-rfq-title" className="text-xl sm:text-2xl font-extrabold font-heading text-primary">
               Quick Technical RFQ
             </h3>
             <p className="text-xs text-slate mt-1 mb-5">
