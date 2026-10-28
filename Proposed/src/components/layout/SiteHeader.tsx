@@ -10,6 +10,7 @@ export const SiteHeader: React.FC = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Products & Specs', path: '/products' },
+    { name: 'Quality', path: '/quality' },
     { name: 'About & Infrastructure', path: '/about' },
     { name: 'Contact & RFQ', path: '/contact' },
   ];

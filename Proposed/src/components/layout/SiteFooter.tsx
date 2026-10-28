@@ -121,7 +121,7 @@ export const SiteFooter: React.FC = () => {
                 <Link to="/about" className="hover:text-accent transition-colors">Manufacturing Infrastructure</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-accent transition-colors">Quality Control Lab</Link>
+                <Link to="/quality" className="hover:text-accent transition-colors">Quality Control Lab</Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-accent transition-colors">Request a Quote (RFQ)</Link>
