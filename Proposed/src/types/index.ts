@@ -85,3 +85,17 @@ export interface EnquiryFormData {
   estimatedVolume?: string;
   message: string;
 }
+
+export interface EventItem {
+  id: string;
+  title: string;
+  expo: string;
+  city: string;
+  country: string;
+  year: number;
+  category: 'russia-2018' | 'colombia-2018' | 'colombia-2017' | 'russia-2017' | 'germany-2017' | 'media';
+  categoryLabel: string;
+  image: string;
+  caption: string;
+  stand?: string;
+}
