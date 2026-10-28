@@ -259,40 +259,44 @@ export const ProductsPage: React.FC = () => {
               <SpecTable specs={selectedProduct.specs} />
             </div>
 
-            {/* Industrial Applications & Convertibility */}
+            {/* Industrial Applications & Convertibility.
+                Each end use carries a photograph of the actual converted product —
+                buyers recognise FIBC bags and seat belts instantly, whereas a grid of
+                "Engineered technical conversion grade" labels told them nothing. */}
             <div className="pt-8 border-t border-border text-left">
-              <span className="text-xs font-bold uppercase tracking-wider text-accent block mb-1">
-                Field Usage & Converters
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold font-heading text-primary mb-6">
-                Recommended Downstream Applications
-              </h3>
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wider text-accent block mb-1">
+                    Field Usage & Converters
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-primary">
+                    Recommended Downstream Applications
+                  </h3>
+                </div>
+                <span className="text-xs text-slate font-medium shrink-0">
+                  {selectedProduct.applications.length} proven end uses
+                </span>
+              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
                 {selectedProduct.applications.map((app, i) => (
-                  <div
+                  <figure
                     key={i}
-                    className="rounded-lg border border-border overflow-hidden bg-base/50 flex flex-col justify-between p-5 hover:border-accent transition-colors"
+                    className="group relative aspect-4/3 rounded-lg overflow-hidden border border-border bg-base"
                   >
-                    <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-accent/20 border border-accent/40 flex items-center justify-center shrink-0 text-accent font-bold text-xs">
-                        {i + 1}
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold font-heading text-primary">
-                          {app.name}
-                        </h4>
-                        <span className="text-[11px] text-slate mt-1 block">
-                          Engineered technical conversion grade
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs font-bold text-accent">
-                      <span>Suitable Grade Available</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
-                  </div>
+                    <img
+                      src={app.image}
+                      alt={app.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/95 via-primary-dark/30 to-transparent" />
+                    <figcaption className="absolute inset-x-0 bottom-0 p-3">
+                      <h4 className="text-xs sm:text-sm font-bold font-heading text-white leading-snug">
+                        {app.name}
+                      </h4>
+                    </figcaption>
+                  </figure>
                 ))}
               </div>
             </div>
