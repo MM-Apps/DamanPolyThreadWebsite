@@ -11,43 +11,44 @@ import { QualityBanner } from '../components/home/QualityBanner';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
 import { Button } from '../components/ui/Button';
+import { assetUrl } from '../utils/assetUrl';
 
 export const HomePage: React.FC = () => {
   const industries = [
     {
       name: 'Bulk Packaging & FIBC',
       desc: 'High-tenacity yarns engineered for sewing jumbo bags, loops, and heavy-duty woven sacks.',
-      image: '/images/products/ppmf/FIBC bag.jpg',
+      image: assetUrl('/images/products/ppmf/FIBC bag.jpg'),
       tag: 'THREADLON PPMF',
     },
     {
       name: 'Grain & Agro Industries',
       desc: 'Fast-running lubricated bag closing threads for high-speed wheat, flour, and sugar bagging.',
-      image: '/images/products/bct/Grain Industries.jpg',
+      image: assetUrl('/images/products/bct/Grain Industries.jpg'),
       tag: 'Bag Closing Thread',
     },
     {
       name: 'Automotive & Safety Restraints',
       desc: 'Tested narrow woven fabrics for seat belts, child safety seats, and vehicle tie-downs.',
-      image: '/images/products/nwf/automobile.jpg',
+      image: assetUrl('/images/products/nwf/automobile.jpg'),
       tag: 'TUFF Webbings',
     },
     {
       name: 'Geotextiles & Civil Engineering',
       desc: 'Chemically inert yarns for erosion control fabrics, canal liners, and soil stabilization.',
-      image: '/images/products/ppmf/Geo-textilewovenfabric.jpg',
+      image: assetUrl('/images/products/ppmf/Geo-textilewovenfabric.jpg'),
       tag: 'High-Tenacity PPMF',
     },
     {
       name: 'Industrial Lifting & Slings',
       desc: 'Abrasion-resistant multi-ply twisted yarns for flat slings, cargo nets, and mooring ropes.',
-      image: '/images/products/ppmf/PPslings.jpg',
+      image: assetUrl('/images/products/ppmf/PPslings.jpg'),
       tag: 'Up to 8.0 g/d',
     },
     {
       name: 'Cement & Chemical Sacks',
       desc: 'Acid and alkali-resistant threads that maintain seam strength through transport & storage.',
-      image: '/images/products/bct/Mouth Closing of Cement Sacks.jpg',
+      image: assetUrl('/images/products/bct/Mouth Closing of Cement Sacks.jpg'),
       tag: 'Rot & Chemical Resistant',
     },
   ];

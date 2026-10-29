@@ -4,6 +4,7 @@ import { Phone, Mail, MapPin, CheckCircle, Send, AlertCircle, Info, Clock, Messa
 import { Button } from '../components/ui/Button';
 import { companyData } from '../data/company';
 import type { EnquiryFormData } from '../types';
+import { assetUrl } from '../utils/assetUrl';
 
 export const ContactPage: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -61,7 +62,7 @@ export const ContactPage: React.FC = () => {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/images/parallax/parallax-nwf.jpg')",
+            backgroundImage: `url('${assetUrl('/images/parallax/parallax-nwf.jpg')}')`,
           }}
         />
         {/* Scrim: the fabric roll is the brightest, most saturated asset on the site, so the left

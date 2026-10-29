@@ -5,6 +5,7 @@ import { SpecTable } from '../components/products/SpecTable';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
+import { assetUrl } from '../utils/assetUrl';
 
 export const ProductsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('ppmf-yarn');
@@ -27,12 +28,12 @@ export const ProductsPage: React.FC = () => {
 
   const getBrandLogo = (brand: string) => {
     if (brand.includes('THREADLON')) {
-      return ['/images/brands/threadlon.png'];
+      return [assetUrl('/images/brands/threadlon.png')];
     }
     if (brand.includes('TUFF') || brand.includes('DPL')) {
-      return ['/images/brands/tuff.png', '/images/brands/dpl.png'];
+      return [assetUrl('/images/brands/tuff.png'), assetUrl('/images/brands/dpl.png')];
     }
-    return ['/images/brands/threadlon.png'];
+    return [assetUrl('/images/brands/threadlon.png')];
   };
 
   const handleDownloadSpec = () => {
@@ -50,7 +51,7 @@ export const ProductsPage: React.FC = () => {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/images/parallax/parallax-ppmf.jpg')",
+            backgroundImage: `url('${assetUrl('/images/parallax/parallax-ppmf.jpg')}')`,
           }}
         />
         {/* Scrim: keeps the headline column solid, lets the bright cone photography read through on the right. */}

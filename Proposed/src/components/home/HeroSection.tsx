@@ -12,6 +12,7 @@ import {
   FileSpreadsheet
 } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { assetUrl } from '../../utils/assetUrl';
 
 interface Slide {
   image: string;
@@ -25,7 +26,7 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    image: '/images/sliders/banner-1.jpg',
+    image: assetUrl('/images/sliders/banner-1.jpg'),
     badge: 'Pioneering HT PPMF Yarn in India • Est. 2000',
     title: 'Mastery in the Art of',
     highlight: 'Yarns, Threads & Fabrics',
@@ -35,7 +36,7 @@ const slides: Slide[] = [
     ctaLink: '/products',
   },
   {
-    image: '/images/sliders/banner-2.jpg',
+    image: assetUrl('/images/sliders/banner-2.jpg'),
     badge: 'THREADLON® • High-Tenacity PPMF Yarn',
     title: 'Engineered Precision',
     highlight: 'PP Multifilament Yarns',
@@ -45,7 +46,7 @@ const slides: Slide[] = [
     ctaLink: '/products',
   },
   {
-    image: '/images/sliders/banner-3.jpg',
+    image: assetUrl('/images/sliders/banner-3.jpg'),
     badge: 'TUFF® & DPL® • Technical Narrow Fabrics',
     title: 'Heavy-Duty Industrial',
     highlight: 'Narrow Woven Webbings',
@@ -55,7 +56,7 @@ const slides: Slide[] = [
     ctaLink: '/products',
   },
   {
-    image: '/images/sliders/banner-4.jpg',
+    image: assetUrl('/images/sliders/banner-4.jpg'),
     badge: 'THREADLON® • Bag Closing Sewing Thread',
     title: 'High-Speed Industrial',
     highlight: 'Bag Closing Threads',
@@ -65,7 +66,7 @@ const slides: Slide[] = [
     ctaLink: '/products',
   },
   {
-    image: '/images/sliders/banner-5.jpg',
+    image: assetUrl('/images/sliders/banner-5.jpg'),
     badge: 'Testing Laboratory & Quality Assurance',
     title: 'Quality is an Integral',
     highlight: 'Part of Our Culture',
@@ -75,7 +76,7 @@ const slides: Slide[] = [
     ctaLink: '/about',
   },
   {
-    image: '/images/sliders/banner-6.jpg',
+    image: assetUrl('/images/sliders/banner-6.jpg'),
     badge: '8 European Compact Spinning Lines',
     title: 'Backed by Advanced',
     highlight: 'Technology & Capacity',

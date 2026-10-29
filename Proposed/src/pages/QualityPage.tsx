@@ -4,6 +4,7 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { Badge } from '../components/ui/Badge';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
 import { companyData } from '../data/company';
+import { assetUrl } from '../utils/assetUrl';
 
 export const QualityPage: React.FC = () => {
   // The four gates every lot passes before it can be invoiced. This is a real
@@ -112,7 +113,7 @@ export const QualityPage: React.FC = () => {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/images/parallax/parallax-quality.jpg')",
+            backgroundImage: `url('${assetUrl('/images/parallax/parallax-quality.jpg')}')`,
           }}
         />
         {/* Scrim: this is a bright, evenly lit winding hall, so the left column runs near-opaque

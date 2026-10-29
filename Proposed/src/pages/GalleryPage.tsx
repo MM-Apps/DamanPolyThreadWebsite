@@ -12,11 +12,12 @@ import {
 } from 'lucide-react';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
+import { assetUrl } from '../utils/assetUrl';
 
 // Twenty photographs of the actual Daman works, grouped by the process stage they
 // show. Every caption describes machinery the plant genuinely runs — nothing here
 // is a stock image, which is the whole point of putting them on a page.
-const plantPhotos = [
+const rawPlantPhotos = [
   { src: '/images/infra/Spinning/FS_001.jpg', title: '8 Compact European Spinning Lines', tag: 'Extrusion & Drawing', category: 'Spinning' },
   { src: '/images/infra/Spinning/FS_006.jpg', title: 'Filament Cross-Section Control', tag: 'Automated HMI', category: 'Spinning' },
   { src: '/images/infra/Spinning/FS_010.jpg', title: 'Continuous Extrusion Hall', tag: 'Melt Spinning', category: 'Spinning' },
@@ -42,12 +43,17 @@ const plantPhotos = [
   { src: '/images/infra/Needle Looms/FS_184.jpg', title: 'Webbing Roll Take-Off', tag: 'Finished Rolls', category: 'Needle Looms' },
 ];
 
+const plantPhotos = rawPlantPhotos.map((p) => ({
+  ...p,
+  src: assetUrl(p.src),
+}));
+
 const categories = ['All', 'Spinning', 'Twisting', 'Winding', 'Needle Looms'];
 
 // The application library is the part a procurement team actually scans: "do you
 // already supply my industry?" Each tile is a real converted end-use, filed under
 // the product line that goes into it.
-const applicationGroups = [
+const rawApplicationGroups = [
   {
     line: 'PP Multifilament Yarn',
     desc: 'High-tenacity yarns feeding woven sacks, FIBC loops, ropes, nets and geotextiles.',
@@ -100,6 +106,11 @@ const applicationGroups = [
   },
 ];
 
+const applicationGroups = rawApplicationGroups.map((g) => ({
+  ...g,
+  photos: g.photos.map((p) => ({ ...p, src: assetUrl(p.src) })),
+}));
+
 export const GalleryPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -150,7 +161,7 @@ export const GalleryPage: React.FC = () => {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/images/parallax/parallax-infrastructure.jpg')",
+            backgroundImage: `url('${assetUrl('/images/parallax/parallax-infrastructure.jpg')}')`,
           }}
         />
         {/* Scrim: the plant hall is mid-key and busy, so the copy column runs near-opaque

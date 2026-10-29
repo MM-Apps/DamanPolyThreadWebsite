@@ -1,4 +1,5 @@
 import type { CompanyInfo } from '../types';
+import { assetUrl } from '../utils/assetUrl';
 
 export const companyData: CompanyInfo = {
   name: 'Daman Polythread Ltd.',
@@ -48,31 +49,31 @@ export const companyData: CompanyInfo = {
       id: 'spinning',
       title: 'European Compact Spinning',
       description: 'Extrusion and drawing on European compact spinning lines with closed-loop HMI automated process control, ensuring uniform filament cross-section and exact denier consistency.',
-      image: '/images/processes/Spinning.png',
+      image: assetUrl('/images/processes/Spinning.png'),
     },
     {
       id: 'texturizing',
       title: 'Intermingling & Texturizing',
       description: 'High-pressure air jets interlace individual continuous filaments to produce coherent yarn structures that prevent separation during rapid weaving and sewing operations.',
-      image: '/images/processes/Texturizing.png',
+      image: assetUrl('/images/processes/Texturizing.png'),
     },
     {
       id: 'twisting',
       title: 'Precision Twisting',
       description: 'Single and multi-ply twisting lines calibrate turns per meter (TPM) to achieve the exact tensile load and flexural endurance specified by industrial clients.',
-      image: '/images/processes/Twisting.png',
+      image: assetUrl('/images/processes/Twisting.png'),
     },
     {
       id: 'winding',
       title: 'High-Precision Winding',
       description: 'Automated electronic tension-controlled cone winding creates knot-free packages that deploy seamlessly on high-speed industrial machinery without snagging.',
-      image: '/images/processes/Winding.png',
+      image: assetUrl('/images/processes/Winding.png'),
     },
     {
       id: 'needle-looms',
       title: 'Heavy-Duty Needle Weaving',
       description: 'Multi-head high-speed needle looms engineer narrow woven fabrics and industrial webbings in custom weaves, widths (10mm - 100mm), and load ratings.',
-      image: '/images/processes/Needle.png',
+      image: assetUrl('/images/processes/Needle.png'),
     },
   ],
   qualityPillars: [

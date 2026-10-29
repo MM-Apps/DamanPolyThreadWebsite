@@ -1,25 +1,26 @@
 import React from 'react';
 import { ShieldCheck, ArrowRight, Award, Factory, Cpu } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { assetUrl } from '../../utils/assetUrl';
 
 export const ParallaxDivider: React.FC = () => {
   const brands = [
     {
       name: 'THREADLON®',
       tagline: 'High-Tenacity PPMF Yarn & Bag Closing Threads',
-      image: '/images/brands/threadlon.png',
+      image: assetUrl('/images/brands/threadlon.png'),
       desc: 'Industry benchmark for high-speed automated sewing and heavy-duty technical synthetic filaments.',
     },
     {
       name: 'TUFF®',
       tagline: 'Technical Narrow Woven Fabrics & Webbings',
-      image: '/images/brands/tuff.png',
+      image: assetUrl('/images/brands/tuff.png'),
       desc: 'Engineered for maximum tensile integrity, abrasion endurance, and UV resistance in FIBC & cargo restraint.',
     },
     {
       name: 'DPL®',
       tagline: 'Precision Narrow Fabrics & Custom Tapes',
-      image: '/images/brands/dpl.png',
+      image: assetUrl('/images/brands/dpl.png'),
       desc: 'Custom engineered widths from 10mm to 100mm woven from our own high-tenacity multifilament yarns.',
     },
   ];
@@ -30,7 +31,7 @@ export const ParallaxDivider: React.FC = () => {
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
         style={{
-          backgroundImage: "url('/images/parallax/parallax-ppmf.jpg')",
+          backgroundImage: `url('${assetUrl('/images/parallax/parallax-ppmf.jpg')}')`,
         }}
       />
 

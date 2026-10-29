@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Globe2, MapPin, ArrowRight, Building2 } from 'lucide-react';
 import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
+import { assetUrl } from '../../utils/assetUrl';
 
 const featuredExpos = [
   {
@@ -11,7 +12,7 @@ const featuredExpos = [
     city: 'Frankfurt am Main',
     country: 'Germany',
     year: '2017',
-    image: '/images/events/eve13.jpg',
+    image: assetUrl('/images/events/eve13.jpg'),
     description: 'Premier world trade fair for technical textiles and nonwovens. Benchmarking European PPMF quality standards.',
     category: 'germany-2017',
   },
@@ -21,7 +22,7 @@ const featuredExpos = [
     city: 'Moscow',
     country: 'Russia',
     year: '2018',
-    image: '/images/events/eve23.jpg',
+    image: assetUrl('/images/events/eve23.jpg'),
     description: 'Direct consultation with Eurasian geo-textile, FIBC sling, and industrial bag closing manufacturers.',
     category: 'russia-2018',
   },
@@ -31,7 +32,7 @@ const featuredExpos = [
     city: 'Medellín',
     country: 'Colombia',
     year: '2018',
-    image: '/images/events/eve16.jpg',
+    image: assetUrl('/images/events/eve16.jpg'),
     description: 'Expanding Latin American distribution networks with custom dope-dyed yarns and TUFF™ webbings.',
     category: 'colombia-2018',
   },
@@ -41,7 +42,7 @@ const featuredExpos = [
     city: 'International',
     country: 'Global',
     year: '2018',
-    image: '/images/events/media1.jpeg',
+    image: assetUrl('/images/events/media1.jpeg'),
     description: 'Feature editorial on Daman Polythread’s 10,000 MT capacity milestone and European technology adoption.',
     category: 'media',
   },

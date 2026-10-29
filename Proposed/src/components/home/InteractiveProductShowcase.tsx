@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, ShieldCheck, Layers, ExternalLink } from 'lucide-react';
 import { Button } from '../ui/Button';
+import { assetUrl } from '../../utils/assetUrl';
 
 interface ProductTab {
   id: string;
@@ -22,9 +23,9 @@ const productTabs: ProductTab[] = [
     id: 'ppmf',
     name: 'Polypropylene Multifilament Yarn',
     brandName: 'THREADLON®',
-    brandLogos: ['/images/brands/threadlon.png'],
+    brandLogos: [assetUrl('/images/brands/threadlon.png')],
     tag: 'Flagship Extrusion Line • Est. 2000',
-    images: ['/images/products/py1.png', '/images/products/py2.png', '/images/products/py3.png'],
+    images: [assetUrl('/images/products/py1.png'), assetUrl('/images/products/py2.png'), assetUrl('/images/products/py3.png')],
     headline: 'High-Tenacity PPMF Filament Yarns',
     description:
       'Threadlon® is India’s foremost brand of High-Tenacity Polypropylene Multifilament Yarns. Manufactured on 8 European compact spinning lines with closed-loop computerized HMI control, Threadlon delivers up to 8.0 g/d tensile strength, chemical inertness, and exceptional abrasion resistance.',
@@ -48,9 +49,9 @@ const productTabs: ProductTab[] = [
     id: 'nwf',
     name: 'Narrow Woven Fabrics & Webbings',
     brandName: 'TUFF® & DPL®',
-    brandLogos: ['/images/brands/tuff.png', '/images/brands/dpl.png'],
+    brandLogos: [assetUrl('/images/brands/tuff.png'), assetUrl('/images/brands/dpl.png')],
     tag: 'Integrated In-House Weaving • 2,000 MT/Yr',
-    images: ['/images/products/nwf1.png', '/images/products/nwf2.png', '/images/products/nwf3.png'],
+    images: [assetUrl('/images/products/nwf1.png'), assetUrl('/images/products/nwf2.png'), assetUrl('/images/products/nwf3.png')],
     headline: 'Heavy-Duty Technical Webbings & Tapes',
     description:
       "'TUFF' and 'DPL' are the industry-standard brand names for high-strength technical webbings manufactured by Daman Polythread Ltd. Because we extrude our own high-tenacity yarns, our narrow fabrics deliver peerless tensile consistency, minimal elongation, and superior durability.",
@@ -74,9 +75,9 @@ const productTabs: ProductTab[] = [
     id: 'bct',
     name: 'Industrial Bag Closing Thread',
     brandName: 'THREADLON®',
-    brandLogos: ['/images/brands/threadlon.png'],
+    brandLogos: [assetUrl('/images/brands/threadlon.png')],
     tag: '50+ Dope-Dyed Shades • High-Speed Stitching',
-    images: ['/images/products/bct1.png', '/images/products/bct2.png', '/images/products/bct3.png'],
+    images: [assetUrl('/images/products/bct1.png'), assetUrl('/images/products/bct2.png'), assetUrl('/images/products/bct3.png')],
     headline: 'High-Speed Industrial Bag Sewing Threads',
     description:
       'Engineered specifically for continuous automated bagging operations in sugar, rice, fertilizer, and grain mills. Formulated with a specialized silicone/paraffin lubricant finish, Threadlon ensures jam-free stitching on Fischbein, Newlong, and Union Special heads.',

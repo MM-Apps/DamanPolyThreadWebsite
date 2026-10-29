@@ -13,6 +13,7 @@ import {
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
 import { eventsData, eventCategories } from '../data/events';
+import { assetUrl } from '../utils/assetUrl';
 import type { EventItem } from '../types';
 
 export const EventsPage: React.FC = () => {
@@ -53,7 +54,7 @@ export const EventsPage: React.FC = () => {
       <section className="relative bg-primary-dark text-white py-20 lg:py-24 overflow-hidden border-b border-primary-light/40">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-15"
-          style={{ backgroundImage: `url('/images/events/eve13.jpg')` }}
+          style={{ backgroundImage: `url('${assetUrl('/images/events/eve13.jpg')}')` }}
         />
         <div className="absolute inset-0 bg-linear-to-b from-primary-dark/95 via-primary-dark/85 to-primary-dark/95" />
 

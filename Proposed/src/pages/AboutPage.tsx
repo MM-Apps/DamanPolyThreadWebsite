@@ -4,17 +4,18 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { Badge } from '../components/ui/Badge';
 import { QuoteCTA } from '../components/ui/QuoteCTA';
 import { companyData } from '../data/company';
+import { assetUrl } from '../utils/assetUrl';
 
 export const AboutPage: React.FC = () => {
   const infraPhotos = [
-    { title: '8 Compact European Spinning Lines', image: '/images/infra/Spinning/FS_001.jpg', tag: 'Extrusion & Drawing' },
-    { title: 'Filament Cross-Section Control', image: '/images/infra/Spinning/FS_006.jpg', tag: 'Automated HMI' },
-    { title: 'Precision Heavy-Duty Twisting', image: '/images/infra/Twisting/FS_070.jpg', tag: 'Single & Multi-Ply' },
-    { title: 'High-Speed Twisting Banks', image: '/images/infra/Twisting/FS_080.jpg', tag: 'TPM Calibration' },
-    { title: 'Electronic Tension Winding', image: '/images/infra/Winding/FS_098.jpg', tag: 'Snag-Free Cones' },
-    { title: 'Multi-Spindle Coning Units', image: '/images/infra/Winding/FS_108.jpg', tag: 'Constant Density' },
-    { title: 'Heavy-Duty Needle Weaving Looms', image: '/images/infra/Needle Looms/FS_169.jpg', tag: '10mm - 100mm Webbings' },
-    { title: 'Webbing Tensile Inspection', image: '/images/infra/Needle Looms/FS_172.jpg', tag: 'TUFF & DPL' },
+    { title: '8 Compact European Spinning Lines', image: assetUrl('/images/infra/Spinning/FS_001.jpg'), tag: 'Extrusion & Drawing' },
+    { title: 'Filament Cross-Section Control', image: assetUrl('/images/infra/Spinning/FS_006.jpg'), tag: 'Automated HMI' },
+    { title: 'Precision Heavy-Duty Twisting', image: assetUrl('/images/infra/Twisting/FS_070.jpg'), tag: 'Single & Multi-Ply' },
+    { title: 'High-Speed Twisting Banks', image: assetUrl('/images/infra/Twisting/FS_080.jpg'), tag: 'TPM Calibration' },
+    { title: 'Electronic Tension Winding', image: assetUrl('/images/infra/Winding/FS_098.jpg'), tag: 'Snag-Free Cones' },
+    { title: 'Multi-Spindle Coning Units', image: assetUrl('/images/infra/Winding/FS_108.jpg'), tag: 'Constant Density' },
+    { title: 'Heavy-Duty Needle Weaving Looms', image: assetUrl('/images/infra/Needle Looms/FS_169.jpg'), tag: '10mm - 100mm Webbings' },
+    { title: 'Webbing Tensile Inspection', image: assetUrl('/images/infra/Needle Looms/FS_172.jpg'), tag: 'TUFF & DPL' },
   ];
 
   return (
@@ -24,7 +25,7 @@ export const AboutPage: React.FC = () => {
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-fixed"
           style={{
-            backgroundImage: "url('/images/parallax/parallax-about-us.jpg')",
+            backgroundImage: `url('${assetUrl('/images/parallax/parallax-about-us.jpg')}')`,
           }}
         />
         {/* Scrim: keeps the headline column solid, lets the bright white machinery hall read through on the right.
@@ -117,7 +118,7 @@ export const AboutPage: React.FC = () => {
             <div className="lg:col-span-5">
               <div className="rounded-xl overflow-hidden border border-border shadow-md">
                 <img
-                  src="/images/factory/factory.jpg"
+                  src={assetUrl('/images/factory/factory.jpg')}
                   alt="Daman Polythread Plant Exterior"
                   className="w-full h-80 object-cover"
                 />
